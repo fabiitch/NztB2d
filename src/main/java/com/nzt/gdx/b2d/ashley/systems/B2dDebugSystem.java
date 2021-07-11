@@ -1,4 +1,4 @@
-package com.nzt.gdx.b2d.ashley;
+package com.nzt.gdx.b2d.ashley.systems;
 
 import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.Color;
@@ -13,14 +13,14 @@ import com.nzt.gdx.debug.perf.PerformanceFrame;
 /**
  * System for Box2D, debugRender
  */
-public class B2DDebugSystem extends NzEntitySystem {
+public class B2dDebugSystem extends NzEntitySystem {
     private final Box2DDebugRenderer debugRenderer;
     private final World world;
     private final Camera camera;
 
     private boolean displayHud = false;
 
-    public B2DDebugSystem(World world, Camera camera, int order) {
+    public B2dDebugSystem(World world, Camera camera, int order) {
         super(order);
         debugRenderer = new Box2DDebugRenderer();
         this.world = world;
@@ -36,7 +36,7 @@ public class B2DDebugSystem extends NzEntitySystem {
         PerformanceFrame.addSystem(this);
     }
 
-    public B2DDebugSystem(World world, Camera camera) {
+    public B2dDebugSystem(World world, Camera camera) {
         this(world, camera, NztSystemsOrder.B2D_DEBUG);
     }
 

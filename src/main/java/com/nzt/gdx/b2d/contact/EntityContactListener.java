@@ -4,9 +4,9 @@ import com.badlogic.ashley.core.ComponentMapper;
 import com.badlogic.ashley.core.Engine;
 import com.badlogic.ashley.core.Entity;
 import com.badlogic.gdx.physics.box2d.*;
-import com.nzt.gdx.ashley.components.b2d.B2DBodyComponent;
 import com.nzt.gdx.ashley.components.properties.RemoveEntityComponent;
 import com.nzt.gdx.ashley.components.properties.TypeComponent;
+import com.nzt.gdx.b2d.ashley.components.B2dBodyComponent;
 import com.nzt.gdx.b2d.debug.B2DDebugUtils;
 import com.nzt.gdx.logger.tag.LogTagsBase;
 import com.nzt.gdx.logger.tag.TagLogger;
@@ -14,7 +14,7 @@ import com.nzt.gdx.logger.tag.TagLogger;
 public abstract class EntityContactListener implements ContactListener {
     //TODO conditions debug contact
     public final static ComponentMapper<TypeComponent> typeMapper = TypeComponent.mapper;
-    public final static ComponentMapper<B2DBodyComponent> b2dMapper = B2DBodyComponent.mapper;
+    public final static ComponentMapper<B2dBodyComponent> b2dMapper = B2dBodyComponent.mapper;
 
     public static boolean LOG_EVENT = true;
     public static boolean LOG_DETAILS = false;

@@ -8,14 +8,14 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.utils.Array;
+import com.nzt.b2d.test.runner.BaseB2DSystemTestScreen;
 import com.nzt.gdx.ashley.components.renders.SpriteComponent;
 import com.nzt.gdx.ashley.systems.render.SpriteRenderSystem;
 import com.nzt.gdx.b2d.FixtureDefWrapper;
 import com.nzt.gdx.b2d.utils.B2DUtils;
 import com.nzt.gdx.debug.hud.core.HudDebug;
-import com.nzt.gdx.test.trials.st.b2D.B2DTestConstants;
+import com.nzt.gdx.test.trials.st.B2dTestConstants;
 import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
-import com.nzt.gdx.test.trials.tester.archi.screens.BaseB2DSystemTestScreen;
 
 abstract class STCollisionTestScreen extends BaseB2DSystemTestScreen {
 	protected final Texture badLogicTexture;
@@ -93,12 +93,12 @@ abstract class STCollisionTestScreen extends BaseB2DSystemTestScreen {
 
 	protected void createBody(float size, FixtureDefWrapper fixtureDefWrapper) {
 		size /= PPM;
-		float randomW = MathUtils.random(-B2DTestConstants.WIDTH_PPM / 2, B2DTestConstants.WIDTH_PPM / 2);
-		float randomH = MathUtils.random(-B2DTestConstants.HEIGHT_PPM / 2, B2DTestConstants.HEIGHT_PPM / 2);
+		float randomW = MathUtils.random(-B2dTestConstants.WIDTH_PPM / 2, B2dTestConstants.WIDTH_PPM / 2);
+		float randomH = MathUtils.random(-B2dTestConstants.HEIGHT_PPM / 2, B2dTestConstants.HEIGHT_PPM / 2);
 		Body circleBody = bodyFactory.createCircleBody(new Vector2(randomW, randomH), size, fixtureDefWrapper);
 		Entity entity = addEntityBody(circleBody);
-		entity.add(entityFactory.mvtFactory.position());
-		SpriteComponent spriteComponent = entityFactory.rendersFactory.sprite(badLogicTexture, size * 2);
+		entity.add(baseEntityFactory.mvtFactory.position());
+		SpriteComponent spriteComponent = baseEntityFactory.rendersFactory.sprite(badLogicTexture, size * 2);
 		entity.add(spriteComponent);
 
 		if (fixtureDefWrapper == fixture2) {

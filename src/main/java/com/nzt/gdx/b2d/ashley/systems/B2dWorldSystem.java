@@ -1,4 +1,4 @@
-package com.nzt.gdx.b2d.ashley;
+package com.nzt.gdx.b2d.ashley.systems;
 
 import com.badlogic.ashley.core.ComponentMapper;
 import com.badlogic.ashley.core.Entity;
@@ -8,17 +8,17 @@ import com.badlogic.gdx.physics.box2d.ContactListener;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.Array;
 import com.nzt.gdx.ashley.NztSystemsOrder;
-import com.nzt.gdx.ashley.components.b2d.B2DBodyComponent;
 import com.nzt.gdx.ashley.components.mvt.PositionComponent;
-import com.nzt.gdx.ashley.components.mvt.Velocity2DComponent;
+import com.nzt.gdx.b2d.ashley.components.B2dBodyComponent;
+import com.nzt.gdx.b2d.ashley.components.B2dEntityUtils;
 import com.nzt.gdx.debug.perf.PerformanceFrame;
 
 /**
  * System for box2D world it do the world.step
  *
  */
-public class B2DWorldSystem extends IteratingSystem {
-	private final static ComponentMapper<B2DBodyComponent> b2dMapper = B2DBodyComponent.mapper;
+public class B2dWorldSystem extends IteratingSystem {
+	private final static ComponentMapper<B2dBodyComponent> b2dMapper = B2dBodyComponent.mapper;
 
 	private static final float MAX_STEP_TIME = 1 / 60f;
 	private float accumulator = 0f;
@@ -29,8 +29,8 @@ public class B2DWorldSystem extends IteratingSystem {
 
 	private final boolean calculRotation;
 
-	public B2DWorldSystem(World world, boolean calculRotation, int order) {
-		super(Family.all(B2DBodyComponent.class, PositionComponent.class).get(), order);
+	public B2dWorldSystem(World world, boolean calculRotation, int order) {
+		super(Family.all(B2dBodyComponent.class, PositionComponent.class).get(), order);
 		this.world = world;
 		this.bodiesQueue = new Array<Entity>();
 		this.toRemove = new Array();
@@ -38,7 +38,7 @@ public class B2DWorldSystem extends IteratingSystem {
 		PerformanceFrame.addSystem(this);
 	}
 
-	public B2DWorldSystem(World world, boolean calculRotation) {
+	public B2dWorldSystem(World world, boolean calculRotation) {
 		this(world, calculRotation, NztSystemsOrder.B2D);
 	}
 
@@ -62,7 +62,7 @@ public class B2DWorldSystem extends IteratingSystem {
 				world.step(MAX_STEP_TIME, 6, 2);
 				for (int i = 0, n = bodiesQueue.size; i < n; i++) {
 					Entity entity = bodiesQueue.get(i);
-					B2DBodyComponent bodyComp = b2dMapper.get(entity);
+					B2dBodyComponent bodyComp = b2dMapper.get(entity);
 					if (bodyComp.doDestroy) {
 						bodyComp.destroyBody(world);
 						toRemove.add(entity);
@@ -81,10 +81,10 @@ public class B2DWorldSystem extends IteratingSystem {
 			// Entity Queue
 			for (int i = 0, n = bodiesQueue.size; i < n; i++) {
 				Entity entity = bodiesQueue.get(i);
-				PositionComponent.updatePositionFromBody(entity);
-				Velocity2DComponent.updateVelocityFromBody(entity);
+				B2dEntityUtils.updatePositionFromBody(entity);
+				B2dEntityUtils.updateVelocityFromBody(entity);
 				if (calculRotation)
-					PositionComponent.updateAngleFromBody(entity);
+					B2dEntityUtils.updateAngleFromBody(entity);
 			}
 		}
 		bodiesQueue.clear();

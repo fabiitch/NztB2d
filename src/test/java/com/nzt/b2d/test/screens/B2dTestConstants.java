@@ -1,6 +1,6 @@
 package com.nzt.b2d.test.screens;
 
-public class B2DTestConstants {
+public class B2dTestConstants {
     public static final float PPM = 40f;
 
     public static float WIDTH = 1080;

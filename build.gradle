@@ -35,7 +35,7 @@ dependencies {
     testImplementation "org.mockito:mockito-core:$mockitoVersion"
     testImplementation group: 'org.reflections', name: 'reflections', version: '0.9.10'
 
-    testCompile project(path: ":NztGdx", configuration: 'testArtifacts')
+    testImplementation project(path: ":NztGdx", configuration: 'testArtifacts')
     testImplementation "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
     testImplementation "com.badlogicgames.gdx:gdx-backend-headless:$gdxVersion"
     testImplementation "com.badlogicgames.gdx:gdx-backend-lwjgl3:$gdxVersion"

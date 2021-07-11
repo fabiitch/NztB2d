@@ -9,7 +9,6 @@ import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.World;
 import com.nzt.gdx.b2d.FixtureDefWrapper;
 import com.nzt.gdx.b2d.factories.BaseBodyFactory;
-import com.nzt.gdx.test.trials.st.b2D.B2DTestConstants;
 import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
 import com.nzt.gdx.test.trials.tester.archi.screens.TestScreen;
 import com.nzt.gdx.test.trials.tester.selector.TestScreenList;
@@ -27,13 +26,13 @@ public class STMultipleWorld extends TestScreen {
         super(main);
         world1 = new World(Vector2.Zero, true);
         world2 = new World(Vector2.Zero, true);
-        bodyFactory1 = new BaseBodyFactory(world1, com.nzt.gdx.test.trials.st.b2D.B2DTestConstants.PPM);
-        bodyFactory2 = new BaseBodyFactory(world2, com.nzt.gdx.test.trials.st.b2D.B2DTestConstants.PPM);
+        bodyFactory1 = new BaseBodyFactory(world1, B2dTestConstants.PPM);
+        bodyFactory2 = new BaseBodyFactory(world2, B2dTestConstants.PPM);
 
         debugRenderer1 = new Box2DDebugRenderer();
         debugRenderer2 = new Box2DDebugRenderer();
 
-        this.camera = new OrthographicCamera(com.nzt.gdx.test.trials.st.b2D.B2DTestConstants.WIDTH_PPM, B2DTestConstants.HEIGHT_PPM);
+        this.camera = new OrthographicCamera(B2dTestConstants.WIDTH_PPM, B2dTestConstants.HEIGHT_PPM);
         this.camera.position.set(0, 0, 0);
         this.camera.lookAt(0, 0, 0);
         addTriangle(1);
