@@ -1,2 +1,4 @@
+include 'NztGdx'
+project(":NztGdx").projectDir = file("../NztGdx")
 rootProject.name = 'NztB2d'
 

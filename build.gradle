@@ -1,17 +1,46 @@
 plugins {
-    id 'java'
+    id 'java-library'
 }
+sourceCompatibility = 1.8
 
-group 'org.example'
+sourceSets.main.java.srcDirs = ["src/main/java"]
+sourceSets.main.resources.srcDirs = ["src/main/resources"]
+sourceSets.test.java.srcDirs = ["src/test/java"]
+sourceSets.test.resources.srcDirs = ["src/test/resources"]
+
+
+group 'com.nzt'
 version '1.0-SNAPSHOT'
-
 repositories {
+    mavenLocal()
     mavenCentral()
+    google()
+    gradlePluginPortal()
+    maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
+    maven { url "https://oss.sonatype.org/content/repositories/releases/" }
 }
-
+ext {
+    gdxVersion = '1.10.0'
+    roboVMVersion = '2.3.12'
+    ashleyVersion = '1.7.4'
+    mockitoVersion = "3.2.0"
+    junitVersion = "5.7.0"
+}
 dependencies {
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+    api project(':NztGdx')
+    api "com.badlogicgames.gdx:gdx-box2d:$gdxVersion"
+
+    testImplementation "org.junit.jupiter:junit-jupiter:$junitVersion"
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$junitVersion"
+    testImplementation "org.mockito:mockito-core:$mockitoVersion"
+    testImplementation group: 'org.reflections', name: 'reflections', version: '0.9.10'
+
+    testCompile project(path: ":NztGdx", configuration: 'testArtifacts')
+    testImplementation "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
+    testImplementation "com.badlogicgames.gdx:gdx-backend-headless:$gdxVersion"
+    testImplementation "com.badlogicgames.gdx:gdx-backend-lwjgl3:$gdxVersion"
+    testImplementation "com.badlogicgames.gdx:gdx-box2d-platform:$gdxVersion:natives-desktop"
+    testImplementation "com.badlogicgames.gdx:gdx-freetype-platform:$gdxVersion:natives-desktop"
 }
 
 test {
