@@ -9,8 +9,9 @@ sourceSets.test.java.srcDirs = ["src/test/java"]
 sourceSets.test.resources.srcDirs = ["src/test/resources"]
 
 
-group 'com.nzt'
+group 'com.nzt.b2d'
 version '1.0-SNAPSHOT'
+
 repositories {
     mavenLocal()
     mavenCentral()
