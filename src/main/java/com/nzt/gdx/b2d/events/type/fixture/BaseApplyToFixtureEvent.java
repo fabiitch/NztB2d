@@ -3,12 +3,12 @@ package com.nzt.gdx.b2d.events.type.fixture;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.Fixture;
 import com.badlogic.gdx.utils.Array;
-import com.nzt.gdx.b2d.events.B2DFixtureEventsEnum;
+import com.nzt.gdx.b2d.events.B2dFixtureEventsEnum;
 
 public abstract class BaseApplyToFixtureEvent<E extends BaseFixtureBodyEvent> extends BaseFixtureBodyEvent<E> {
     public int fixtureNumber = -1;//-1 == to applyToAll
 
-    public BaseApplyToFixtureEvent(B2DFixtureEventsEnum fixtureEnum) {
+    public BaseApplyToFixtureEvent(B2dFixtureEventsEnum fixtureEnum) {
         super(fixtureEnum);
     }
 

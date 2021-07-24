@@ -1,13 +1,13 @@
 package com.nzt.gdx.b2d.events.type.fixture;
 
-import com.nzt.gdx.b2d.events.B2DBaseEvent;
-import com.nzt.gdx.b2d.events.B2DEventsEnum;
-import com.nzt.gdx.b2d.events.B2DFixtureEventsEnum;
+import com.nzt.gdx.b2d.events.B2dBaseEvent;
+import com.nzt.gdx.b2d.events.B2dEventsEnum;
+import com.nzt.gdx.b2d.events.B2dFixtureEventsEnum;
 
-public abstract class BaseFixtureBodyEvent<E extends BaseFixtureBodyEvent> extends B2DBaseEvent<E> {
+public abstract class BaseFixtureBodyEvent<E extends BaseFixtureBodyEvent> extends B2dBaseEvent<E> {
 
 
-    public BaseFixtureBodyEvent(B2DFixtureEventsEnum fixtureEnum) {
-        super((short) (B2DEventsEnum.Fixture.ordinal() + fixtureEnum.ordinal()));
+    public BaseFixtureBodyEvent(B2dFixtureEventsEnum fixtureEnum) {
+        super((short) (B2dEventsEnum.Fixture.ordinal() + fixtureEnum.ordinal()));
     }
 }

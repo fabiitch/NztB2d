@@ -1,15 +1,15 @@
 package com.nzt.gdx.b2d.events.type.mvt;
 
 import com.badlogic.gdx.physics.box2d.Body;
-import com.nzt.gdx.b2d.events.B2DBaseEvent;
-import com.nzt.gdx.b2d.events.B2DEventsEnum;
+import com.nzt.gdx.b2d.events.B2dBaseEvent;
+import com.nzt.gdx.b2d.events.B2dEventsEnum;
 
-public class AngularDampingBodyEvent extends B2DBaseEvent<AngularDampingBodyEvent> {
+public class AngularDampingBodyEvent extends B2dBaseEvent<AngularDampingBodyEvent> {
 
     public float angularDamping;
 
     public AngularDampingBodyEvent() {
-        super(B2DEventsEnum.AngularDamping);
+        super(B2dEventsEnum.AngularDamping);
     }
 
     @Override

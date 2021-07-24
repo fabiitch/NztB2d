@@ -1,15 +1,15 @@
 package com.nzt.gdx.b2d.events.type.properties;
 
 import com.badlogic.gdx.physics.box2d.Body;
-import com.nzt.gdx.b2d.events.B2DBaseEvent;
-import com.nzt.gdx.b2d.events.B2DEventsEnum;
+import com.nzt.gdx.b2d.events.B2dBaseEvent;
+import com.nzt.gdx.b2d.events.B2dEventsEnum;
 
-public class ActiveBodyEvent extends B2DBaseEvent<ActiveBodyEvent> {
+public class ActiveBodyEvent extends B2dBaseEvent<ActiveBodyEvent> {
 
     public boolean active;
 
     public ActiveBodyEvent() {
-        super(B2DEventsEnum.Active);
+        super(B2dEventsEnum.Active);
     }
 
     @Override

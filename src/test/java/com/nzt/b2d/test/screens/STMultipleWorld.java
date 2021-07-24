@@ -8,7 +8,7 @@ import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.World;
 import com.nzt.gdx.b2d.FixtureDefWrapper;
-import com.nzt.gdx.b2d.factories.BaseBodyFactory;
+import com.nzt.gdx.b2d.factories.B2dBodyFactory;
 import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
 import com.nzt.gdx.test.trials.tester.archi.screens.TestScreen;
 import com.nzt.gdx.test.trials.tester.selector.TestScreenList;
@@ -19,15 +19,15 @@ public class STMultipleWorld extends TestScreen {
     private final World world1;
     private final World world2;
 
-    public BaseBodyFactory bodyFactory1, bodyFactory2;
+    public B2dBodyFactory bodyFactory1, bodyFactory2;
     public Box2DDebugRenderer debugRenderer1, debugRenderer2;
 
     public STMultipleWorld(FastTesterMain main) {
         super(main);
         world1 = new World(Vector2.Zero, true);
         world2 = new World(Vector2.Zero, true);
-        bodyFactory1 = new BaseBodyFactory(world1, B2dTestConstants.PPM);
-        bodyFactory2 = new BaseBodyFactory(world2, B2dTestConstants.PPM);
+        bodyFactory1 = new B2dBodyFactory(world1, B2dTestConstants.PPM);
+        bodyFactory2 = new B2dBodyFactory(world2, B2dTestConstants.PPM);
 
         debugRenderer1 = new Box2DDebugRenderer();
         debugRenderer2 = new Box2DDebugRenderer();

@@ -1,16 +1,16 @@
 package com.nzt.gdx.b2d.events.type.mvt;
 
 import com.badlogic.gdx.physics.box2d.Body;
-import com.nzt.gdx.b2d.events.B2DBaseEvent;
-import com.nzt.gdx.b2d.events.B2DEventsEnum;
+import com.nzt.gdx.b2d.events.B2dBaseEvent;
+import com.nzt.gdx.b2d.events.B2dEventsEnum;
 
-public class TorqueBodyEvent extends B2DBaseEvent<TorqueBodyEvent> {
+public class TorqueBodyEvent extends B2dBaseEvent<TorqueBodyEvent> {
 
     public float torque;
     public boolean wake;
 
     public TorqueBodyEvent() {
-        super(B2DEventsEnum.Torque);
+        super(B2dEventsEnum.Torque);
     }
 
     @Override

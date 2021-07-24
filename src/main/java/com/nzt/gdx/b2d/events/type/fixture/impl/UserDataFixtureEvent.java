@@ -1,15 +1,15 @@
 package com.nzt.gdx.b2d.events.type.fixture.impl;
 
 import com.badlogic.gdx.physics.box2d.Fixture;
-import com.nzt.gdx.b2d.events.B2DFixtureEventsEnum;
+import com.nzt.gdx.b2d.events.B2dFixtureEventsEnum;
 import com.nzt.gdx.b2d.events.type.fixture.BaseApplyToFixtureEvent;
 
 public class UserDataFixtureEvent extends BaseApplyToFixtureEvent<UserDataFixtureEvent> {
 
     public Object userdata;
 
-    public UserDataFixtureEvent(B2DFixtureEventsEnum fixtureEnum) {
-        super(B2DFixtureEventsEnum.UserData);
+    public UserDataFixtureEvent(B2dFixtureEventsEnum fixtureEnum) {
+        super(B2dFixtureEventsEnum.UserData);
     }
 
     @Override

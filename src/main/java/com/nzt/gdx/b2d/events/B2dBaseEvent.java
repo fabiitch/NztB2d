@@ -6,18 +6,18 @@ import com.badlogic.gdx.utils.Pool.Poolable;
 /*
 Base class for all Box2D event
  */
-public abstract class B2DBaseEvent<E extends B2DBaseEvent> implements Poolable {
+public abstract class B2dBaseEvent<E extends B2dBaseEvent> implements Poolable {
 
     /*
     utilisé pour le check destroy et le concat
      */
     public final short eventType;
 
-    public B2DBaseEvent(short eventType) {
+    public B2dBaseEvent(short eventType) {
         this.eventType = eventType;
     }
 
-    public B2DBaseEvent(B2DEventsEnum event) {
+    public B2dBaseEvent(B2dEventsEnum event) {
         this((short) event.ordinal());
     }
 

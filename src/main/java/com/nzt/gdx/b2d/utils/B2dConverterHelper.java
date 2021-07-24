@@ -8,10 +8,10 @@ import com.nzt.gdx.logger.tag.LogTagsBase;
 import com.nzt.gdx.logger.tag.TagLogger;
 
 //TODO a revoir complet (use pools
-public class B2DConverterHelper {
+public class B2dConverterHelper {
     public float PPM;
 
-    public B2DConverterHelper(float ppm) {
+    public B2dConverterHelper(float ppm) {
         this.PPM = ppm;
         TagLogger.info(LogTagsBase.B2D_INFO, "Box2DConverter PPM = " + PPM);
     }

@@ -12,7 +12,7 @@ import com.nzt.b2d.test.runner.BaseB2DSystemTestScreen;
 import com.nzt.gdx.ashley.components.renders.SpriteComponent;
 import com.nzt.gdx.ashley.systems.render.SpriteRenderSystem;
 import com.nzt.gdx.b2d.FixtureDefWrapper;
-import com.nzt.gdx.b2d.utils.B2DUtils;
+import com.nzt.gdx.b2d.utils.B2dCollisionUtils;
 import com.nzt.gdx.debug.hud.core.HudDebug;
 import com.nzt.gdx.test.trials.st.B2dTestConstants;
 import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
@@ -66,29 +66,29 @@ abstract class STCollisionTestScreen extends BaseB2DSystemTestScreen {
 
 
 	private void displayFilterRules() {
-		HudDebug.addBotLeft("1 & 1", B2DUtils.shouldCollide(fixture1, fixture1));
-		HudDebug.addBotLeft("1 & 2", B2DUtils.shouldCollide(fixture1, fixture2));
-		HudDebug.addBotLeft("1 & 3", B2DUtils.shouldCollide(fixture1, fixture3));
-		HudDebug.addBotLeft("1 & 4", B2DUtils.shouldCollide(fixture1, fixture4));
-		HudDebug.addBotLeft("1 & walls", B2DUtils.shouldCollide(fixture1, fixtureWall));
+		HudDebug.addBotLeft("1 & 1", B2dCollisionUtils.shouldCollide(fixture1, fixture1));
+		HudDebug.addBotLeft("1 & 2", B2dCollisionUtils.shouldCollide(fixture1, fixture2));
+		HudDebug.addBotLeft("1 & 3", B2dCollisionUtils.shouldCollide(fixture1, fixture3));
+		HudDebug.addBotLeft("1 & 4", B2dCollisionUtils.shouldCollide(fixture1, fixture4));
+		HudDebug.addBotLeft("1 & walls", B2dCollisionUtils.shouldCollide(fixture1, fixtureWall));
 		HudDebug.addBotLeft("--", "--");
-		HudDebug.addBotLeft("2 & 2", B2DUtils.shouldCollide(fixture2, fixture2));
-		HudDebug.addBotLeft("2 & 1", B2DUtils.shouldCollide(fixture2, fixture1));
-		HudDebug.addBotLeft("2 & 3", B2DUtils.shouldCollide(fixture2, fixture3));
-		HudDebug.addBotLeft("2 & 4", B2DUtils.shouldCollide(fixture2, fixture4));
-		HudDebug.addBotLeft("2 & walls", B2DUtils.shouldCollide(fixture2, fixtureWall));
+		HudDebug.addBotLeft("2 & 2", B2dCollisionUtils.shouldCollide(fixture2, fixture2));
+		HudDebug.addBotLeft("2 & 1", B2dCollisionUtils.shouldCollide(fixture2, fixture1));
+		HudDebug.addBotLeft("2 & 3", B2dCollisionUtils.shouldCollide(fixture2, fixture3));
+		HudDebug.addBotLeft("2 & 4", B2dCollisionUtils.shouldCollide(fixture2, fixture4));
+		HudDebug.addBotLeft("2 & walls", B2dCollisionUtils.shouldCollide(fixture2, fixtureWall));
 		HudDebug.addBotLeft("--", "--");
-		HudDebug.addBotLeft("3 & 3", B2DUtils.shouldCollide(fixture3, fixture3));
-		HudDebug.addBotLeft("3 & 1", B2DUtils.shouldCollide(fixture3, fixture1));
-		HudDebug.addBotLeft("3 & 2", B2DUtils.shouldCollide(fixture3, fixture2));
-		HudDebug.addBotLeft("3 & 4", B2DUtils.shouldCollide(fixture3, fixture4));
-		HudDebug.addBotLeft("3 & walls", B2DUtils.shouldCollide(fixture3, fixtureWall));
+		HudDebug.addBotLeft("3 & 3", B2dCollisionUtils.shouldCollide(fixture3, fixture3));
+		HudDebug.addBotLeft("3 & 1", B2dCollisionUtils.shouldCollide(fixture3, fixture1));
+		HudDebug.addBotLeft("3 & 2", B2dCollisionUtils.shouldCollide(fixture3, fixture2));
+		HudDebug.addBotLeft("3 & 4", B2dCollisionUtils.shouldCollide(fixture3, fixture4));
+		HudDebug.addBotLeft("3 & walls", B2dCollisionUtils.shouldCollide(fixture3, fixtureWall));
 		HudDebug.addBotLeft("--", "--");
-		HudDebug.addBotLeft("4 & 4", B2DUtils.shouldCollide(fixture4, fixture4));
-		HudDebug.addBotLeft("4 & 1", B2DUtils.shouldCollide(fixture4, fixture1));
-		HudDebug.addBotLeft("4 & 2", B2DUtils.shouldCollide(fixture4, fixture2));
-		HudDebug.addBotLeft("4 & 3", B2DUtils.shouldCollide(fixture4, fixture3));
-		HudDebug.addBotLeft("4 & walls", B2DUtils.shouldCollide(fixture4, fixtureWall));
+		HudDebug.addBotLeft("4 & 4", B2dCollisionUtils.shouldCollide(fixture4, fixture4));
+		HudDebug.addBotLeft("4 & 1", B2dCollisionUtils.shouldCollide(fixture4, fixture1));
+		HudDebug.addBotLeft("4 & 2", B2dCollisionUtils.shouldCollide(fixture4, fixture2));
+		HudDebug.addBotLeft("4 & 3", B2dCollisionUtils.shouldCollide(fixture4, fixture3));
+		HudDebug.addBotLeft("4 & walls", B2dCollisionUtils.shouldCollide(fixture4, fixtureWall));
 	}
 
 	protected void createBody(float size, FixtureDefWrapper fixtureDefWrapper) {

@@ -1,6 +1,6 @@
 package com.nzt.gdx.b2d.events;
 
-public enum B2DEventsEnum {
+public enum B2dEventsEnum {
     Active,
     Fixture,
     Awake,

@@ -5,7 +5,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.*;
 import com.badlogic.gdx.physics.box2d.BodyDef.BodyType;
 import com.nzt.gdx.b2d.FixtureDefWrapper;
-import com.nzt.gdx.b2d.utils.B2DConverterHelper;
+import com.nzt.gdx.b2d.utils.B2dConverterHelper;
 import com.nzt.gdx.logger.tag.LogTagsBase;
 import com.nzt.gdx.logger.tag.TagLogger;
 import com.nzt.gdx.logger.utils.NzLoggableUtils;
@@ -19,17 +19,17 @@ import com.nzt.gdx.math.vectors.V2;
  * @author fabiitch
  */
 //TODO a reprendre
-public class BaseBodyFactory {
+public class B2dBodyFactory {
 
     public final World world;
     public final float ppm;
-    public final B2DConverterHelper b2DConverter;
+    public final B2dConverterHelper b2DConverter;
 
-    public BaseBodyFactory(World world, float ppm) {
+    public B2dBodyFactory(World world, float ppm) {
         super();
         this.world = world;
         this.ppm = ppm;
-        this.b2DConverter = new B2DConverterHelper(ppm);
+        this.b2DConverter = new B2dConverterHelper(ppm);
     }
 
     public Body createRectangleBody(Rectangle rectangle, FixtureDefWrapper fixtureDefWrapper) {

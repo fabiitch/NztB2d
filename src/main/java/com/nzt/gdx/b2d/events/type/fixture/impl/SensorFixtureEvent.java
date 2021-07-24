@@ -1,7 +1,7 @@
 package com.nzt.gdx.b2d.events.type.fixture.impl;
 
 import com.badlogic.gdx.physics.box2d.Fixture;
-import com.nzt.gdx.b2d.events.B2DFixtureEventsEnum;
+import com.nzt.gdx.b2d.events.B2dFixtureEventsEnum;
 import com.nzt.gdx.b2d.events.type.fixture.BaseApplyToFixtureEvent;
 
 public class SensorFixtureEvent extends BaseApplyToFixtureEvent<SensorFixtureEvent> {
@@ -9,7 +9,7 @@ public class SensorFixtureEvent extends BaseApplyToFixtureEvent<SensorFixtureEve
     public boolean sensor;
 
     public SensorFixtureEvent() {
-        super(B2DFixtureEventsEnum.Sensor);
+        super(B2dFixtureEventsEnum.Sensor);
     }
 
     @Override

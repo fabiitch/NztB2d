@@ -6,8 +6,8 @@ import com.badlogic.gdx.physics.box2d.Fixture;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.utils.Array;
 
-public class B2DUtils {
-	private B2DUtils() {
+public class B2dCollisionUtils {
+	private B2dCollisionUtils() {
 
 	}
 

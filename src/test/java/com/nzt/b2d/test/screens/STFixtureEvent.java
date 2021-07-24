@@ -9,7 +9,7 @@ import com.nzt.b2d.test.runner.BaseB2DSystemTestScreen;
 import com.nzt.gdx.b2d.FixtureDefWrapper;
 import com.nzt.gdx.b2d.ashley.components.B2dBodyComponent;
 import com.nzt.gdx.b2d.events.type.fixture.impl.SensorFixtureEvent;
-import com.nzt.gdx.b2d.factories.B2DFixtureEventFactory;
+import com.nzt.gdx.b2d.factories.B2dFixtureEventFactory;
 import com.nzt.gdx.debug.hud.core.HudDebug;
 import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
 import com.nzt.gdx.test.trials.tester.selector.TestScreenList;
@@ -48,7 +48,7 @@ public class STFixtureEvent extends BaseB2DSystemTestScreen {
     private Callable<Boolean> fireEvent() {
         return new Callable<Boolean>() {
             public Boolean call() {
-                SensorFixtureEvent sensorFixtureEvent = B2DFixtureEventFactory.sensor(-1, true);
+                SensorFixtureEvent sensorFixtureEvent = B2dFixtureEventFactory.sensor(-1, true);
                 entity.getComponent(B2dBodyComponent.class).addBox2DEvent(sensorFixtureEvent);
                 HudDebug.changeColor("Fixture isSensor", Color.BLUE);
                 return true;

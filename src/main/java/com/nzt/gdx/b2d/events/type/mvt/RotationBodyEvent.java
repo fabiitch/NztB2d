@@ -1,16 +1,16 @@
 package com.nzt.gdx.b2d.events.type.mvt;
 
 import com.badlogic.gdx.physics.box2d.Body;
-import com.nzt.gdx.b2d.events.B2DBaseEvent;
-import com.nzt.gdx.b2d.events.B2DEventsEnum;
+import com.nzt.gdx.b2d.events.B2dBaseEvent;
+import com.nzt.gdx.b2d.events.B2dEventsEnum;
 
-public class RotationBodyEvent extends B2DBaseEvent<RotationBodyEvent> {
+public class RotationBodyEvent extends B2dBaseEvent<RotationBodyEvent> {
 
     public float angleRadian;
     public short priority;
 
     public RotationBodyEvent() {
-        super(B2DEventsEnum.Rotation);
+        super(B2dEventsEnum.Rotation);
     }
 
 

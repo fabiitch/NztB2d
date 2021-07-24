@@ -1,15 +1,15 @@
 package com.nzt.gdx.b2d.events.type.properties;
 
 import com.badlogic.gdx.physics.box2d.Body;
-import com.nzt.gdx.b2d.events.B2DBaseEvent;
-import com.nzt.gdx.b2d.events.B2DEventsEnum;
+import com.nzt.gdx.b2d.events.B2dBaseEvent;
+import com.nzt.gdx.b2d.events.B2dEventsEnum;
 
-public class FixedRotationBodyEvent extends B2DBaseEvent<FixedRotationBodyEvent> {
+public class FixedRotationBodyEvent extends B2dBaseEvent<FixedRotationBodyEvent> {
 
     public boolean fixedRotation;
 
     public FixedRotationBodyEvent() {
-        super(B2DEventsEnum.AngularDamping);
+        super(B2dEventsEnum.AngularDamping);
     }
 
     @Override

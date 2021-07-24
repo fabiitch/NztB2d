@@ -15,8 +15,8 @@ import com.nzt.gdx.b2d.FixtureDefWrapper;
 import com.nzt.gdx.b2d.ashley.systems.B2dApplyEventsSystem;
 import com.nzt.gdx.b2d.ashley.systems.B2dDebugSystem;
 import com.nzt.gdx.b2d.ashley.systems.B2dWorldSystem;
-import com.nzt.gdx.b2d.factories.BaseBodyFactory;
-import com.nzt.gdx.b2d.utils.B2DConverterHelper;
+import com.nzt.gdx.b2d.factories.B2dBodyFactory;
+import com.nzt.gdx.b2d.utils.B2dConverterHelper;
 import com.nzt.gdx.input.impl.simple.SimpleClickInputHandler;
 import com.nzt.gdx.test.trials.st.B2dTestConstants;
 import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
@@ -27,11 +27,11 @@ import java.util.ArrayList;
 
 public abstract class BaseB2DSystemTestScreen extends BaseSystemTestScreen {
     public final float PPM = B2dTestConstants.PPM;
-    public B2DConverterHelper b2DConverter = new B2DConverterHelper(PPM);
+    public B2dConverterHelper b2DConverter = new B2dConverterHelper(PPM);
 
     public World world;
     public Camera camera;
-    public BaseBodyFactory bodyFactory;
+    public B2dBodyFactory bodyFactory;
 
     public B2dWorldSystem worldSystem;
     public B2dDebugSystem b2DDebugSystem;
@@ -65,7 +65,7 @@ public abstract class BaseB2DSystemTestScreen extends BaseSystemTestScreen {
         this.b2DDebugSystem = new B2dDebugSystem(world, camera);
         b2DDebugSystem.initHudDebug();
 
-        bodyFactory = new BaseBodyFactory(world, B2dTestConstants.PPM);
+        bodyFactory = new B2dBodyFactory(world, B2dTestConstants.PPM);
 
         engine.addSystem(worldSystem);
         engine.addSystem(b2DApplyEventsSystem);

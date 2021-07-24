@@ -5,8 +5,8 @@ import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.Pools;
 import com.nzt.gdx.ashley.base.components.PoolableComponent;
-import com.nzt.gdx.b2d.events.B2DBaseEvent;
-import com.nzt.gdx.b2d.events.B2DEventContainer;
+import com.nzt.gdx.b2d.events.B2dBaseEvent;
+import com.nzt.gdx.b2d.events.B2dEventContainer;
 
 /**
  * Box2D body component used by system : {@link com.nzt.gdx.b2d.ashley.systems.B2dWorldSystem} and
@@ -19,12 +19,12 @@ public class B2dBodyComponent extends PoolableComponent {
     public static final ComponentMapper<B2dBodyComponent> mapper = ComponentMapper.getFor(B2dBodyComponent.class);
 
     public Body body;
-    public B2DEventContainer eventContainer;
+    public B2dEventContainer eventContainer;
     public boolean doDestroy;
 
     public B2dBodyComponent() {
         super();
-        this.eventContainer = new B2DEventContainer();
+        this.eventContainer = new B2dEventContainer();
     }
 
     @Override
@@ -34,11 +34,11 @@ public class B2dBodyComponent extends PoolableComponent {
         this.eventContainer.reset();
     }
 
-    public void addBox2DEvent(B2DBaseEvent... events) {
+    public void addBox2DEvent(B2dBaseEvent... events) {
         eventContainer.addEvent(events);
     }
 
-    public void addBox2DEvent(B2DBaseEvent event) {
+    public void addBox2DEvent(B2dBaseEvent event) {
         eventContainer.addEvent(event);
     }
 
@@ -48,7 +48,7 @@ public class B2dBodyComponent extends PoolableComponent {
     }
 
     public void processAllEvents() {
-        for (B2DBaseEvent event : eventContainer.eventArray) {
+        for (B2dBaseEvent event : eventContainer.eventArray) {
             event.apply(body);
         }
         Pools.freeAll(eventContainer.eventArray);

@@ -5,14 +5,14 @@ import com.badlogic.gdx.physics.box2d.World;
 import com.nzt.gdx.debug.hud.HudDebugPosition;
 import com.nzt.gdx.debug.hud.core.HudDebug;
 
-public class B2DHudDebug {
+public class B2dHudDebug {
 
-	private B2DHudDebug() {
+	private B2dHudDebug() {
 
 	}
 
 	public static void initHudDebug(World world) {
-		B2DHudDebug.initHudDebug(world, HudDebugPosition.TOP_RIGHT, Color.RED);
+		B2dHudDebug.initHudDebug(world, HudDebugPosition.TOP_RIGHT, Color.RED);
 	}
 
 	public static void initHudDebug(World world, int positionOnStage, Color color) {

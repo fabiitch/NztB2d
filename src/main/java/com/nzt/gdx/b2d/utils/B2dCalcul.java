@@ -3,7 +3,7 @@ package com.nzt.gdx.b2d.utils;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 
-public class B2DCalcul {
+public class B2dCalcul {
 
 	public static Vector2 getVelocityTo(Body body, float time, Vector2 posTo) {
 		final Vector2 bodyPos = body.getPosition();

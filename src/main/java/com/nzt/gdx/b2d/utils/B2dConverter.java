@@ -5,7 +5,7 @@ import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
 
-public class B2DConverter {
+public class B2dConverter {
 
 	public static float heightScreenToPPM(float PPM) {
 		return Gdx.graphics.getHeight() / PPM;

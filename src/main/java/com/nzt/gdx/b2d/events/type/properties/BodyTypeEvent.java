@@ -2,15 +2,15 @@ package com.nzt.gdx.b2d.events.type.properties;
 
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.BodyDef.BodyType;
-import com.nzt.gdx.b2d.events.B2DBaseEvent;
-import com.nzt.gdx.b2d.events.B2DEventsEnum;
+import com.nzt.gdx.b2d.events.B2dBaseEvent;
+import com.nzt.gdx.b2d.events.B2dEventsEnum;
 
-public class BodyTypeEvent extends B2DBaseEvent<BodyTypeEvent> {
+public class BodyTypeEvent extends B2dBaseEvent<BodyTypeEvent> {
 
     public BodyType bodyType;
 
     public BodyTypeEvent() {
-        super(B2DEventsEnum.BodyType);
+        super(B2dEventsEnum.BodyType);
     }
 
     @Override

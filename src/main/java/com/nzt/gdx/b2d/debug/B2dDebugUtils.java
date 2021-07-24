@@ -6,9 +6,9 @@ import com.nzt.gdx.logger.TagLoggerBlockUtils;
 import com.nzt.gdx.logger.tag.LogTagsBase;
 import com.nzt.gdx.logger.tag.TagLogger;
 
-public class B2DDebugUtils {
+public class B2dDebugUtils {
 
-	private B2DDebugUtils() {
+	private B2dDebugUtils() {
 
 	}
 
