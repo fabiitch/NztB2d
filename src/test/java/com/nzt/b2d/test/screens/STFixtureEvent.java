@@ -35,7 +35,7 @@ public class STFixtureEvent extends BaseB2DSystemTestScreen {
     }
 
     @Override
-    public String getExplication() {
+    public String getTestExplication() {
         return "Fixture Event";
     }
 

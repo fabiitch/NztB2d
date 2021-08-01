@@ -15,7 +15,7 @@ public class STCollisionFilterWithGroup extends STCollisionTestScreen {
     }
 
     @Override
-    public String getExplication() {
+    public String getTestExplication() {
         return "TestFilter avec group";
     }
 

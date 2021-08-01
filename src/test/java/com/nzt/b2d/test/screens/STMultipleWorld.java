@@ -41,7 +41,7 @@ public class STMultipleWorld extends TestScreen {
     }
 
     @Override
-    public String getExplication() {
+    public String getTestExplication() {
         return "Plusieurs world sur Box2D";
     }
 

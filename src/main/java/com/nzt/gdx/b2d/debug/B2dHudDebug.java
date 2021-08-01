@@ -7,15 +7,12 @@ import com.nzt.gdx.debug.hud.core.HudDebug;
 
 public class B2dHudDebug {
 
-	private B2dHudDebug() {
 
+	public B2dHudDebug(World world) {
+		this(world, HudDebugPosition.TOP_RIGHT, Color.RED);
 	}
 
-	public static void initHudDebug(World world) {
-		B2dHudDebug.initHudDebug(world, HudDebugPosition.TOP_RIGHT, Color.RED);
-	}
-
-	public static void initHudDebug(World world, int positionOnStage, Color color) {
+	public B2dHudDebug(World world, int positionOnStage, Color color) {
 		HudDebug.addItem("Body count", world.getBodyCount(), positionOnStage, color);
 		HudDebug.addItem("Contact count", world.getContactCount(), positionOnStage, color);
 		HudDebug.addItem("Fixture count", world.getFixtureCount(), positionOnStage, color);
@@ -24,7 +21,7 @@ public class B2dHudDebug {
 		HudDebug.addItem("World VelocityThreshold", World.getVelocityThreshold(), positionOnStage, color);
 	}
 
-	public static void updateHudDebug(World world) {
+	public  void update(World world) {
 		HudDebug.update("Body count", world.getBodyCount());
 		HudDebug.update("Contact count", world.getContactCount());
 		HudDebug.update("Fixture count", world.getFixtureCount());

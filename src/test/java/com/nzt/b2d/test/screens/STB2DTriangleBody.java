@@ -30,21 +30,17 @@ public class STB2DTriangleBody extends BaseB2DSystemTestScreen {
         triangleBody.setAngularVelocity(1);
         SimpleClickInputHandler clickInputHandler = new SimpleClickInputHandler() {
             @Override
-            public boolean doTouchDown(int screenX, int screenY, int pointer, int button) {
+            public boolean click(int screenX, int screenY, int pointer, int button) {
                 transformToPPM(triangleBody, screenX, screenY, 0);
                 return false;
             }
 
-            @Override
-            public boolean doTouchUp(int screenX, int screenY, int pointer, int button) {
-                return false;
-            }
         };
         Gdx.input.setInputProcessor(clickInputHandler);
     }
 
     @Override
-    public String getExplication() {
+    public String getTestExplication() {
         return "Triangle shape sur Box2D";
     }
 

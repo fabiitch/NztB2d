@@ -91,6 +91,7 @@ public class B2dWorldSystem extends IteratingSystem {
 		PerformanceFrame.endSystem(this);
 	}
 
+	//TODO a changer complet avec un listener
 	@Override
 	protected void processEntity(Entity entity, float deltaTime) {
 		bodiesQueue.add(entity);

@@ -17,6 +17,7 @@ import com.nzt.gdx.b2d.ashley.systems.B2dDebugSystem;
 import com.nzt.gdx.b2d.ashley.systems.B2dWorldSystem;
 import com.nzt.gdx.b2d.factories.B2dBodyFactory;
 import com.nzt.gdx.b2d.utils.B2dConverterHelper;
+import com.nzt.gdx.input.impl.simple.MouseInputHandler;
 import com.nzt.gdx.input.impl.simple.SimpleClickInputHandler;
 import com.nzt.gdx.test.trials.st.B2dTestConstants;
 import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
@@ -85,7 +86,8 @@ public abstract class BaseB2DSystemTestScreen extends BaseSystemTestScreen {
                     return true;
             }
         };
-        SimpleClickInputHandler inputHandler = new SimpleClickInputHandler() {
+        MouseInputHandler inputHandler = new MouseInputHandler() {
+
             @Override
             public boolean doTouchDown(int x, int y, int pointer, int newParam) {
                 // translate the mouse coordinates to world coordinates

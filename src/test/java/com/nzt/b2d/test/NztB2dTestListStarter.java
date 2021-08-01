@@ -4,7 +4,7 @@ import com.badlogic.gdx.backends.lwjgl3.Lwjgl3Application;
 import com.badlogic.gdx.backends.lwjgl3.Lwjgl3ApplicationConfiguration;
 import com.nzt.gdx.main.AbstractMain;
 import com.nzt.gdx.test.trials.NztTestListStarter;
-import com.nzt.gdx.test.trials.tester.selector.ScreenSelectorTestMain;
+import com.nzt.gdx.test.trials.tester.selector.screen.ScreenSelectorTestMain;
 
 /**
  * Open Test chooser

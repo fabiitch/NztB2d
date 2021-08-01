@@ -23,7 +23,7 @@ public class STDebugDisplaySystemTest extends BaseB2DSystemTestScreen {
     }
 
     @Override
-    public String getExplication() {
+    public String getTestExplication() {
         return "STDebugDisplaySystemTest";
     }
 
@@ -32,7 +32,7 @@ public class STDebugDisplaySystemTest extends BaseB2DSystemTestScreen {
         float randomW = MathUtils.random(-B2dTestConstants.WIDTH_PPM / 2, B2dTestConstants.WIDTH_PPM / 2);
         float randomH = MathUtils.random(-B2dTestConstants.HEIGHT_PPM / 2, B2dTestConstants.HEIGHT_PPM / 2);
         FixtureDefWrapper fixtureDefWrapper = new FixtureDefWrapper(BodyDef.BodyType.DynamicBody).setSensor(false).setDensity(1).setToPPM(false);
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 200; i++) {
             float size = MathUtils.random(5 / B2dTestConstants.PPM, 50 / B2dTestConstants.PPM);
             Body circleBody = bodyFactory.createCircleBody(new Vector2(randomW, randomH), size, fixtureDefWrapper);
             Entity entity = addEntityBody(circleBody);

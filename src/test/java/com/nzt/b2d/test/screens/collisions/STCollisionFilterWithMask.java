@@ -20,7 +20,7 @@ public class STCollisionFilterWithMask extends STCollisionTestScreen {
     final short MASK_4 = 1 << 4;
 
     @Override
-    public String getExplication() {
+    public String getTestExplication() {
         return "TestFilter avec mask";
     }
 

@@ -19,6 +19,7 @@ public class B2dDebugSystem extends NzEntitySystem {
     private final Camera camera;
 
     private boolean displayHud = false;
+    private B2dHudDebug b2dHudDebug;
 
     public B2dDebugSystem(World world, Camera camera, int order) {
         super(order);
@@ -41,24 +42,21 @@ public class B2dDebugSystem extends NzEntitySystem {
     }
 
     public void initHudDebug(int positionOnStage, Color color) {
-        B2dHudDebug.initHudDebug(world, positionOnStage, color);
+        this.b2dHudDebug = new B2dHudDebug(world, positionOnStage, color);
         this.displayHud = true;
     }
 
     public void initHudDebug() {
-    	B2dHudDebug.initHudDebug(world, HudDebugPosition.TOP_RIGHT, Color.RED);
+        this.b2dHudDebug = new B2dHudDebug(world, HudDebugPosition.TOP_RIGHT, Color.RED);
         this.displayHud = true;
     }
 
-    public void updateHudDebug() {
-    	B2dHudDebug.updateHudDebug(world);
-    }
 
     @Override
     public void updateSystem(float dt) {
         debugRenderer.render(world, camera.combined);
         if (displayHud)
-            updateHudDebug();
+            b2dHudDebug.update(world);
     }
 
     public void dispose() {
