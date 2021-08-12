@@ -1,5 +1,7 @@
 package com.nzt.b2d.test.screens.perf;
 
+import java.util.concurrent.TimeUnit;
+
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.Color;
@@ -10,7 +12,6 @@ import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.World;
-import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.nzt.b2d.test.screens.B2dTestConstants;
 import com.nzt.gdx.b2d.FixtureDefWrapper;
 import com.nzt.gdx.b2d.debug.B2dHudDebug;
@@ -24,8 +25,6 @@ import com.nzt.gdx.math.random.Randoms;
 import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
 import com.nzt.gdx.test.trials.tester.archi.screens.TestScreen;
 import com.nzt.gdx.test.trials.tester.selector.TestScreenList;
-
-import java.util.concurrent.TimeUnit;
 
 @TestScreenList(group = "perf")
 public abstract class BaseB2DPerfST extends TestScreen {

@@ -1,5 +1,7 @@
 package com.nzt.b2d.test.screens;
 
+import java.util.concurrent.Callable;
+
 import com.badlogic.ashley.core.Entity;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.math.Vector2;
@@ -13,8 +15,6 @@ import com.nzt.gdx.b2d.factories.B2dFixtureEventFactory;
 import com.nzt.gdx.debug.hud.core.HudDebug;
 import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
 import com.nzt.gdx.test.trials.tester.selector.TestScreenList;
-
-import java.util.concurrent.Callable;
 
 @TestScreenList
 public class STFixtureEvent extends BaseB2DSystemTestScreen {
