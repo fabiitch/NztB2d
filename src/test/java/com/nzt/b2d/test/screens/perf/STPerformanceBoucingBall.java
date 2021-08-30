@@ -3,7 +3,7 @@ package com.nzt.b2d.test.screens.perf;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.BodyDef;
-import com.nzt.gdx.b2d.FixtureDefWrapper;
+import com.nzt.b2d.FixtureDefWrapper;
 import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
 
 public class STPerformanceBoucingBall extends BaseB2DPerfST {

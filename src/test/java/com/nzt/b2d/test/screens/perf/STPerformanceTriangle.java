@@ -4,7 +4,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.nzt.b2d.test.screens.B2dTestConstants;
-import com.nzt.gdx.b2d.FixtureDefWrapper;
+import com.nzt.b2d.FixtureDefWrapper;
 import com.nzt.gdx.math.shapes.Triangle;
 import com.nzt.gdx.math.shapes.builders.TriangleBuilder;
 import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;

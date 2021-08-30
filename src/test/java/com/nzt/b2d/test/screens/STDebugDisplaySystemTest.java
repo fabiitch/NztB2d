@@ -7,7 +7,7 @@ import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.nzt.b2d.test.runner.BaseB2DSystemTestScreen;
 import com.nzt.gdx.ashley.systems.debug.DebugDisplaySystem;
-import com.nzt.gdx.b2d.FixtureDefWrapper;
+import com.nzt.b2d.FixtureDefWrapper;
 import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
 import com.nzt.gdx.test.trials.tester.selector.TestScreenList;
 
