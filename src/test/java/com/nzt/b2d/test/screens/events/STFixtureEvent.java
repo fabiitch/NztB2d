@@ -1,4 +1,4 @@
-package com.nzt.b2d.test.screens;
+package com.nzt.b2d.test.screens.events;
 
 import java.util.concurrent.Callable;
 

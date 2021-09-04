@@ -79,10 +79,14 @@ public class B2dBodyFactory {
     }
 
     public Body createCircleBody(Vector2 position, float rayon, FixtureDefWrapper fixtureDefWrapper) {
+        return createCircleBody(position.x, position.y, rayon, fixtureDefWrapper);
+    }
+
+    public Body createCircleBody(float x, float y, float rayon, FixtureDefWrapper fixtureDefWrapper) {
         if (fixtureDefWrapper.toPPM) {
             rayon = b2DConverter.toPPM(rayon);
         }
-        Body body = createBody(position.x, position.y, fixtureDefWrapper.bodyType);
+        Body body = createBody(x, y, fixtureDefWrapper.bodyType);
         FixtureDef fdef = fixtureDefWrapper.apply();
         CircleShape shape = new CircleShape();
         shape.setRadius(rayon);
@@ -91,11 +95,12 @@ public class B2dBodyFactory {
         Fixture fixture = body.createFixture(fdef);
         fixture.setUserData(fixtureDefWrapper.userData);
 
-        TagLogger.infoBlock(LogTagsBase.B2D_CREATION, "fixtureDefWrapper", NzLoggableUtils.creates(position, rayon),
+        TagLogger.infoBlock(LogTagsBase.B2D_CREATION, "fixtureDefWrapper", NzLoggableUtils.creates(x, y, rayon),
                 fixtureDefWrapper);
         shape.dispose();
         return body;
     }
+
 
     private Body createBody(float x, float y, BodyType bodyType) {
         BodyDef bodyDef = new BodyDef(); // TODO a mettre en cache

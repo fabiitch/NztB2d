@@ -1,4 +1,4 @@
-package com.nzt.b2d.test.screens;
+package com.nzt.b2d.test.screens.server;
 
 import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.OrthographicCamera;
@@ -9,6 +9,7 @@ import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.World;
 import com.nzt.b2d.FixtureDefWrapper;
 import com.nzt.b2d.factories.B2dBodyFactory;
+import com.nzt.b2d.test.screens.B2dTestConstants;
 import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
 import com.nzt.gdx.test.trials.tester.archi.screens.TestScreen;
 import com.nzt.gdx.test.trials.tester.selector.TestScreenList;

@@ -1,4 +1,4 @@
-package com.nzt.b2d.test.screens.collisions;
+package com.nzt.b2d.test.screens.collisions.filter;
 
 import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
 import com.nzt.gdx.test.trials.tester.selector.TestScreenList;
@@ -8,8 +8,7 @@ import com.nzt.gdx.test.trials.tester.selector.TestScreenList;
  * bool collide = (filterA.maskBits & filterB.categoryBits) != 0 &&
  * (filterA.categoryBits & filterB.maskBits) != 0;
  **/
-@TestScreenList(group = "collisions")
-public class STCollisionFilterWithGroup extends STCollisionTestScreen {
+public class STCollisionFilterWithGroup extends CollisionFilterTestScreen {
     public STCollisionFilterWithGroup(FastTesterMain main) {
         super(main);
     }

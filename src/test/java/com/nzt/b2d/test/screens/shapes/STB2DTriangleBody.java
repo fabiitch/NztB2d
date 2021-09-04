@@ -1,4 +1,4 @@
-package com.nzt.b2d.test.screens;
+package com.nzt.b2d.test.screens.shapes;
 
 import com.badlogic.ashley.core.Entity;
 import com.badlogic.gdx.Gdx;

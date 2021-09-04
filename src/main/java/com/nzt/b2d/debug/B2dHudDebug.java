@@ -21,7 +21,17 @@ public class B2dHudDebug {
 		HudDebug.addItem("World VelocityThreshold", World.getVelocityThreshold(), positionOnStage, color);
 	}
 
-	public  void update(World world) {
+	public void remove() {
+		HudDebug.remove("Body count");
+		HudDebug.remove("Contact count");
+		HudDebug.remove("Fixture count");
+		HudDebug.remove("Joint count");
+		HudDebug.remove("Proxy count");
+		HudDebug.remove("World VelocityThreshold");
+
+	}
+
+	public void update(World world) {
 		HudDebug.update("Body count", world.getBodyCount());
 		HudDebug.update("Contact count", world.getContactCount());
 		HudDebug.update("Fixture count", world.getFixtureCount());

@@ -1,6 +1,6 @@
 package com.nzt.b2d.test;
 
-import com.nzt.b2d.test.screens.STDebugDisplaySystemTest;
+import com.nzt.b2d.test.screens.systems.STDebugDisplaySystemTest;
 import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
 
 /**

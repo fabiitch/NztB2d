@@ -1,10 +1,9 @@
-package com.nzt.b2d.test.screens.collisions;
+package com.nzt.b2d.test.screens.collisions.filter;
 
 import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
 import com.nzt.gdx.test.trials.tester.selector.TestScreenList;
 
-@TestScreenList(group = "collisions")
-public class STCollisionFilterWithMask extends STCollisionTestScreen {
+public class STCollisionFilterWithMask extends CollisionFilterTestScreen {
     public STCollisionFilterWithMask(FastTesterMain main) {
         super(main);
     }
