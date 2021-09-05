@@ -13,7 +13,6 @@ public class B2dConverterHelper {
 
     public B2dConverterHelper(float ppm) {
         this.PPM = ppm;
-        TagLogger.info(LogTagsBase.B2D_INFO, "Box2DConverter PPM = " + PPM);
     }
 
     public float heightScreenToPPM() {
@@ -75,6 +74,14 @@ public class B2dConverterHelper {
     public Vector3 toScreen(Vector3 vector) {
         return vector.set(vector.x * PPM, vector.y * PPM, vector.z * PPM);
     }
+
+    @Override
+    public String toString() {
+        return "B2dConverterHelper{" +
+                "PPM=" + PPM +
+                '}';
+    }
+
 
     /**
      * Return la position relative d'un pointer par rapport a un body en unité box2D
