@@ -1,6 +1,7 @@
 package com.nzt.b2d.test.runner;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.math.Vector2;
@@ -24,6 +25,8 @@ public abstract class BaseB2DTestScreen extends TestScreen {
 
     public B2dHudDebug b2dHudDebug;
 
+    public boolean simulationRun = true;
+
     public BaseB2DTestScreen(FastTesterMain main) {
         super(main);
         this.camera = new OrthographicCamera(B2dTestConstants.WIDTH_PPM, B2dTestConstants.HEIGHT_PPM);
@@ -42,14 +45,28 @@ public abstract class BaseB2DTestScreen extends TestScreen {
                 return false;
             }
         });
+
+        box2DDebugRenderer.setDrawBodies(true);
+        box2DDebugRenderer.setDrawVelocities(true);
+        box2DDebugRenderer.setDrawJoints(true);
+        box2DDebugRenderer.setDrawAABBs(true);
+        box2DDebugRenderer.setDrawContacts(true);
+        box2DDebugRenderer.setDrawInactiveBodies(true);
+
+        infoMsg("Press Space to Stop simulation");
     }
 
     public abstract void afterClick(Vector2 posClicked);
 
     @Override
     public void renderTestScreen(float dt) {
-        world.step(dt, 10, 10);
-        b2dHudDebug.update(world);
+        if (Gdx.input.isKeyJustPressed(Input.Keys.SPACE)) {
+            simulationRun = !simulationRun;
+        }
+        if (simulationRun) {
+            world.step(dt, 10, 10);
+            b2dHudDebug.update(world);
+        }
         box2DDebugRenderer.render(world, camera.combined);
     }
 

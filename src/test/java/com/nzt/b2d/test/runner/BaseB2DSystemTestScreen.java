@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import com.badlogic.ashley.core.Entity;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.math.Rectangle;
@@ -37,7 +38,7 @@ public abstract class BaseB2DSystemTestScreen extends BaseSystemTestScreen {
     public Camera camera;
     public B2dBodyFactory bodyFactory;
 
-    public B2dWorldSystem worldSystem;
+    public B2dWorldSystem b2dWorldSystem;
     public B2dDebugSystem b2DDebugSystem;
 
     public ArrayList<Body> bodies = new ArrayList<>();
@@ -51,8 +52,11 @@ public abstract class BaseB2DSystemTestScreen extends BaseSystemTestScreen {
 
     public B2dEntityFactory baseEntityFactory;
 
+    public boolean simulationRun = true;
+
     public BaseB2DSystemTestScreen(FastTesterMain main) {
         super(main);
+        infoMsg("Press Space to Stop simulation");
 
         baseEntityFactory = new B2dEntityFactory(engine);
         fixtureWall = new FixtureDefWrapper(BodyDef.BodyType.StaticBody).setSensor(false).setDensity(1).setToPPM(true);
@@ -64,14 +68,14 @@ public abstract class BaseB2DSystemTestScreen extends BaseSystemTestScreen {
         engine.addSystem(hudSystem);
 
         this.world = new World(Vector2.Zero, true);
-        this.worldSystem = new B2dWorldSystem(world, true);
+        this.b2dWorldSystem = new B2dWorldSystem(world, true);
         B2dApplyEventsSystem b2DApplyEventsSystem = new B2dApplyEventsSystem(world);
         this.b2DDebugSystem = new B2dDebugSystem(world, camera);
         b2DDebugSystem.initHudDebug();
 
         bodyFactory = new B2dBodyFactory(world, B2dTestConstants.PPM);
 
-        engine.addSystem(worldSystem);
+        engine.addSystem(b2dWorldSystem);
         engine.addSystem(b2DApplyEventsSystem);
         engine.addSystem(b2DDebugSystem);
 
@@ -141,7 +145,20 @@ public abstract class BaseB2DSystemTestScreen extends BaseSystemTestScreen {
         Gdx.input.setInputProcessor(inputHandler);
     }
 
-    protected Vector2 v(Vector2 vector2) {
+    @Override
+    public void renderTestScreen(float dt) {
+        super.renderTestScreen(dt);
+        if (Gdx.input.isKeyJustPressed(Input.Keys.SPACE)) {
+            simulationRun = !simulationRun;
+            if(simulationRun){
+                engine.removeSystem(b2dWorldSystem);
+            }else{
+                engine.addSystem(b2dWorldSystem);
+            }
+        }
+    }
+
+    protected Vector2 vToPPM(Vector2 vector2) {
         return b2DConverter.toPPM(vector2);
     }
 
