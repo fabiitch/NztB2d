@@ -24,4 +24,10 @@ public class BaseB2dTest extends BaseGdxTest {
     public void dispose() {
         world.dispose();
     }
+
+    @Override
+    public void renderTest(float dt) {
+        world.step(dt, 6, 2);
+
+    }
 }
