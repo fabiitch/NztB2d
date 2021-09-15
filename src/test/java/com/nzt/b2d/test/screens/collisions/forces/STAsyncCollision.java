@@ -34,11 +34,8 @@ public class STAsyncCollision extends BaseB2DTestScreen {
         rectBody.setLinearVelocity(0, -2);
     }
 
-
     @Override
-    public void renderTestScreen(float dt) {
-        super.renderTestScreen(dt);
-
+    public void doRender(float dt) {
         debugMsg("Circle velocity", circleBody.getLinearVelocity());
         debugMsg("Rectangle velocity", rectBody.getLinearVelocity());
     }

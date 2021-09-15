@@ -1,6 +1,5 @@
 package com.nzt.b2d.test.screens.collisions.forces;
 
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
@@ -38,10 +37,8 @@ public class STCircleRectCollisionForces extends BaseB2DTestScreen {
         rectBody.setLinearVelocity(-2, 0);
     }
 
-
     @Override
-    public void renderTestScreen(float dt) {
-        super.renderTestScreen(dt);
+    public void doRender(float dt) {
         debugMsg("Circle velocity", circleBody.getLinearVelocity());
         debugMsg("Rectangle velocity", rectBody.getLinearVelocity());
     }

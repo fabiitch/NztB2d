@@ -11,9 +11,7 @@ import com.nzt.b2d.events.B2dEventContainer;
 
 /**
  * Box2D body component used by system : {@link B2dWorldSystem} and
- * {@link com.nzt.gdx.b2d.ashley.systems.B2dDebugSystem}
- *
- * @author fabiitch
+ * {@link com.nzt.b2d.ashley.systems.B2dDebugSystem}
  */
 public class B2dBodyComponent extends PoolableComponent {
 

@@ -58,6 +58,8 @@ public abstract class BaseB2DTestScreen extends TestScreen {
 
     public abstract void afterClick(Vector2 posClicked);
 
+    public abstract void doRender(float dt);
+
     @Override
     public void renderTestScreen(float dt) {
         if (Gdx.input.isKeyJustPressed(Input.Keys.SPACE)) {
@@ -68,6 +70,7 @@ public abstract class BaseB2DTestScreen extends TestScreen {
             b2dHudDebug.update(world);
         }
         box2DDebugRenderer.render(world, camera.combined);
+        doRender(dt);
     }
 
     @Override
