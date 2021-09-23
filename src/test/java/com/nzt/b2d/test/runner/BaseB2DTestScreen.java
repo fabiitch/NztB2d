@@ -8,6 +8,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.World;
 import com.nzt.b2d.debug.B2dHudDebug;
+import com.nzt.b2d.debug.B2dUserDataDrawer;
 import com.nzt.b2d.factories.B2dBodyFactory;
 import com.nzt.b2d.utils.B2dConverterHelper;
 import com.nzt.gdx.input.impl.simple.SimpleClickInputHandler;
@@ -17,11 +18,12 @@ import com.nzt.gdx.test.trials.tester.archi.screens.TestScreen;
 
 public abstract class BaseB2DTestScreen extends TestScreen {
     public final float PPM = B2dTestConstants.PPM;
-    public B2dConverterHelper b2DConverter = new B2dConverterHelper(PPM);
+    public final B2dConverterHelper b2DConverter = new B2dConverterHelper(PPM);
     public final World world;
     public final Camera camera;
     public final B2dBodyFactory bodyFactory;
     public final Box2DDebugRenderer box2DDebugRenderer;
+    public final B2dUserDataDrawer b2dUserDataDrawer;
 
     public B2dHudDebug b2dHudDebug;
 
@@ -37,6 +39,7 @@ public abstract class BaseB2DTestScreen extends TestScreen {
         this.box2DDebugRenderer = new Box2DDebugRenderer();
 
         this.b2dHudDebug = new B2dHudDebug(world);
+        this.b2dUserDataDrawer = new B2dUserDataDrawer(world, camera, PPM);
 
         Gdx.input.setInputProcessor(new SimpleClickInputHandler() {
             @Override
@@ -70,6 +73,7 @@ public abstract class BaseB2DTestScreen extends TestScreen {
             b2dHudDebug.update(world);
         }
         box2DDebugRenderer.render(world, camera.combined);
+        b2dUserDataDrawer.drawUserData();
         doRender(dt);
     }
 
