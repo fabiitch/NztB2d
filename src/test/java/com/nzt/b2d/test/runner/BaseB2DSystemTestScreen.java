@@ -1,7 +1,5 @@
 package com.nzt.b2d.test.runner;
 
-import java.util.ArrayList;
-
 import com.badlogic.ashley.core.Entity;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
@@ -10,25 +8,23 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
-import com.badlogic.gdx.physics.box2d.Body;
-import com.badlogic.gdx.physics.box2d.BodyDef;
-import com.badlogic.gdx.physics.box2d.Fixture;
-import com.badlogic.gdx.physics.box2d.QueryCallback;
-import com.badlogic.gdx.physics.box2d.World;
+import com.badlogic.gdx.physics.box2d.*;
 import com.badlogic.gdx.physics.box2d.joints.MouseJoint;
 import com.badlogic.gdx.physics.box2d.joints.MouseJointDef;
-import com.nzt.b2d.test.utils.B2dEntityFactory;
 import com.nzt.b2d.FixtureDefWrapper;
 import com.nzt.b2d.ashley.systems.B2dApplyEventsSystem;
 import com.nzt.b2d.ashley.systems.B2dDebugSystem;
 import com.nzt.b2d.ashley.systems.B2dWorldSystem;
 import com.nzt.b2d.factories.B2dBodyFactory;
+import com.nzt.b2d.test.utils.B2dEntityFactory;
 import com.nzt.b2d.utils.B2dConverterHelper;
 import com.nzt.gdx.input.impl.simple.MouseInputHandler;
 import com.nzt.gdx.test.trials.st.B2dTestConstants;
-import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
+import com.nzt.gdx.test.trials.tester.archi.mains.FastTesterMain;
 import com.nzt.gdx.test.trials.tester.archi.screens.BaseSystemTestScreen;
 import com.nzt.gdx.test.trials.tester.archi.systems.HudSystem;
+
+import java.util.ArrayList;
 
 public abstract class BaseB2DSystemTestScreen extends BaseSystemTestScreen {
     public final float PPM = B2dTestConstants.PPM;
@@ -150,9 +146,9 @@ public abstract class BaseB2DSystemTestScreen extends BaseSystemTestScreen {
         super.renderTestScreen(dt);
         if (Gdx.input.isKeyJustPressed(Input.Keys.SPACE)) {
             simulationRun = !simulationRun;
-            if(simulationRun){
+            if (simulationRun) {
                 engine.removeSystem(b2dWorldSystem);
-            }else{
+            } else {
                 engine.addSystem(b2dWorldSystem);
             }
         }

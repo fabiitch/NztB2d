@@ -5,9 +5,9 @@ import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.Pools;
 import com.nzt.b2d.ashley.systems.B2dWorldSystem;
-import com.nzt.gdx.ashley.base.components.PoolableComponent;
 import com.nzt.b2d.events.B2dBaseEvent;
 import com.nzt.b2d.events.B2dEventContainer;
+import com.nzt.gdx.ashley.base.components.PoolableComponent;
 
 /**
  * Box2D body component used by system : {@link B2dWorldSystem} and

@@ -13,7 +13,7 @@ import com.nzt.b2d.factories.B2dBodyFactory;
 import com.nzt.b2d.utils.B2dConverterHelper;
 import com.nzt.gdx.input.impl.simple.SimpleClickInputHandler;
 import com.nzt.gdx.test.trials.st.B2dTestConstants;
-import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
+import com.nzt.gdx.test.trials.tester.archi.mains.FastTesterMain;
 import com.nzt.gdx.test.trials.tester.archi.screens.TestScreen;
 
 public abstract class BaseB2DTestScreen extends TestScreen {

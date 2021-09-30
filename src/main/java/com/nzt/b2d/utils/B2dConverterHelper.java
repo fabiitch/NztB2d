@@ -4,8 +4,6 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
-import com.nzt.gdx.logger.tag.LogTagsBase;
-import com.nzt.gdx.logger.tag.TagLogger;
 
 //TODO a revoir complet (use pools
 public class B2dConverterHelper {

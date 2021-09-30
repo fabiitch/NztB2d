@@ -1,9 +1,9 @@
 package com.nzt.b2d.test.screens.collisions.forces.balls;
 
 import com.badlogic.gdx.math.Vector2;
-import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
+import com.nzt.gdx.test.trials.tester.archi.mains.FastTesterMain;
 
-public class STBallFrontCollision extends BaseSTBallCollision{
+public class STBallFrontCollision extends BaseSTBallCollision {
     public STBallFrontCollision(FastTesterMain main) {
         super(main);
     }
@@ -30,22 +30,22 @@ public class STBallFrontCollision extends BaseSTBallCollision{
 
     @Override
     Vector2 posA() {
-        return new Vector2(-5,0);
+        return new Vector2(-5, 0);
     }
 
     @Override
     Vector2 posB() {
-        return new Vector2(5,0);
+        return new Vector2(5, 0);
     }
 
     @Override
     Vector2 velA() {
-        return new Vector2(5,0);
+        return new Vector2(5, 0);
     }
 
     @Override
     Vector2 velB() {
-        return new Vector2(-5,0);
+        return new Vector2(-5, 0);
     }
 
     @Override

@@ -3,9 +3,9 @@ package com.nzt.b2d.ashley.components;
 import com.badlogic.ashley.core.ComponentMapper;
 import com.badlogic.ashley.core.Entity;
 import com.badlogic.gdx.math.Vector2;
+import com.nzt.b2d.events.B2dBaseEvent;
 import com.nzt.gdx.ashley.components.mvt.PositionComponent;
 import com.nzt.gdx.ashley.components.mvt.Velocity2DComponent;
-import com.nzt.b2d.events.B2dBaseEvent;
 
 public class B2dEntityUtils {
     private static final ComponentMapper<B2dBodyComponent> b2dMapper = B2dBodyComponent.mapper;

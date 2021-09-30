@@ -5,11 +5,11 @@ import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.BodyDef;
+import com.nzt.b2d.FixtureDefWrapper;
 import com.nzt.b2d.test.runner.BaseB2DSystemTestScreen;
 import com.nzt.b2d.test.screens.B2dTestConstants;
 import com.nzt.gdx.ashley.systems.debug.DebugDisplaySystem;
-import com.nzt.b2d.FixtureDefWrapper;
-import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
+import com.nzt.gdx.test.trials.tester.archi.mains.FastTesterMain;
 import com.nzt.gdx.test.trials.tester.selector.TestScreenList;
 
 @TestScreenList(group = "ecs")

@@ -2,11 +2,6 @@
 
 Put NztGdx in same folder or change path in settings.gradle
 
-
-
-
-
-	
 	For eclipse : 
 	Java Build Path
 	1) Project add NztGdx	

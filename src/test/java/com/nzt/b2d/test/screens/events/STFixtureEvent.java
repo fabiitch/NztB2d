@@ -1,20 +1,20 @@
 package com.nzt.b2d.test.screens.events;
 
-import java.util.concurrent.Callable;
-
 import com.badlogic.ashley.core.Entity;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.BodyDef;
-import com.nzt.b2d.test.runner.BaseB2DSystemTestScreen;
 import com.nzt.b2d.FixtureDefWrapper;
 import com.nzt.b2d.ashley.components.B2dBodyComponent;
 import com.nzt.b2d.events.type.fixture.impl.SensorFixtureEvent;
 import com.nzt.b2d.factories.B2dFixtureEventFactory;
+import com.nzt.b2d.test.runner.BaseB2DSystemTestScreen;
 import com.nzt.gdx.debug.hud.core.HudDebug;
-import com.nzt.gdx.test.trials.tester.archi.main.FastTesterMain;
+import com.nzt.gdx.test.trials.tester.archi.mains.FastTesterMain;
 import com.nzt.gdx.test.trials.tester.selector.TestScreenList;
+
+import java.util.concurrent.Callable;
 
 @TestScreenList
 public class STFixtureEvent extends BaseB2DSystemTestScreen {

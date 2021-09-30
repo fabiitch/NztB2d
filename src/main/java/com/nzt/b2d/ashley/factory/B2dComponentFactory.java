@@ -2,8 +2,8 @@ package com.nzt.b2d.ashley.factory;
 
 import com.badlogic.ashley.core.Engine;
 import com.badlogic.gdx.physics.box2d.Body;
-import com.nzt.gdx.ashley.factories.BaseComponentFactory;
 import com.nzt.b2d.ashley.components.B2dBodyComponent;
+import com.nzt.gdx.ashley.factories.BaseComponentFactory;
 
 public class B2dComponentFactory extends BaseComponentFactory {
     public B2dComponentFactory(Engine engine) {
