@@ -33,4 +33,18 @@ public class QueryWorldTest extends BaseB2dTest {
         Assertions.assertEquals(0, reportFixtureCall[0]);
     }
 
+    @Override
+    public void renderUnitTest(float dt) {
+
+    }
+
+    @Override
+    public String getTestExplication() {
+        return null;
+    }
+
+    @Override
+    public void disposeTestScreen() {
+
+    }
 }

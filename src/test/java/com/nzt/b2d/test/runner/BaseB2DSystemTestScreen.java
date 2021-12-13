@@ -16,13 +16,13 @@ import com.nzt.b2d.ashley.systems.B2dApplyEventsSystem;
 import com.nzt.b2d.ashley.systems.B2dDebugSystem;
 import com.nzt.b2d.ashley.systems.B2dWorldSystem;
 import com.nzt.b2d.factories.B2dBodyFactory;
+import com.nzt.b2d.test.screens.B2dTestConstants;
 import com.nzt.b2d.test.utils.B2dEntityFactory;
 import com.nzt.b2d.utils.B2dConverterHelper;
 import com.nzt.gdx.input.impl.simple.MouseInputHandler;
-import com.nzt.gdx.test.trials.st.B2dTestConstants;
-import com.nzt.gdx.test.trials.tester.archi.mains.FastTesterMain;
-import com.nzt.gdx.test.trials.tester.archi.screens.BaseSystemTestScreen;
-import com.nzt.gdx.test.trials.tester.archi.systems.HudSystem;
+import com.nzt.gdx.test.utils.archi.mains.mains.FastTesterMain;
+import com.nzt.gdx.test.utils.archi.screens.BaseSystemTestScreen;
+import com.nzt.gdx.test.utils.archi.systems.HudSystem;
 
 import java.util.ArrayList;
 

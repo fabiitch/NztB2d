@@ -1,7 +1,7 @@
 package com.nzt.b2d.test.screens.collisions.forces.balls;
 
 import com.badlogic.gdx.math.Vector2;
-import com.nzt.gdx.test.trials.tester.archi.mains.FastTesterMain;
+import com.nzt.gdx.test.utils.archi.mains.mains.FastTesterMain;
 
 public class STOneBallCollisionMass extends BaseSTBallCollision {
     public STOneBallCollisionMass(FastTesterMain main) {

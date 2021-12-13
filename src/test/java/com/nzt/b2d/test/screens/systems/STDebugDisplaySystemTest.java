@@ -9,10 +9,10 @@ import com.nzt.b2d.FixtureDefWrapper;
 import com.nzt.b2d.test.runner.BaseB2DSystemTestScreen;
 import com.nzt.b2d.test.screens.B2dTestConstants;
 import com.nzt.gdx.ashley.systems.debug.DebugDisplaySystem;
-import com.nzt.gdx.test.trials.tester.archi.mains.FastTesterMain;
-import com.nzt.gdx.test.trials.tester.selector.TestScreenList;
+import com.nzt.gdx.test.utils.archi.mains.mains.FastTesterMain;
+import com.nzt.gdx.test.utils.screen_selector.TestScreen;
 
-@TestScreenList(group = "ecs")
+@TestScreen(group = "ecs")
 public class STDebugDisplaySystemTest extends BaseB2DSystemTestScreen {
     public STDebugDisplaySystemTest(FastTesterMain main) {
         super(main);

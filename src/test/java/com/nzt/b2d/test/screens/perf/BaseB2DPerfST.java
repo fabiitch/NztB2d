@@ -20,14 +20,14 @@ import com.nzt.gdx.debug.utils.DebugDisplayUtils;
 import com.nzt.gdx.input.impl.simple.SimpleClickInputHandler;
 import com.nzt.gdx.math.Percentage;
 import com.nzt.gdx.math.random.Randoms;
-import com.nzt.gdx.test.trials.tester.archi.mains.FastTesterMain;
-import com.nzt.gdx.test.trials.tester.archi.screens.TestScreen;
-import com.nzt.gdx.test.trials.tester.selector.TestScreenList;
+import com.nzt.gdx.test.utils.archi.mains.mains.FastTesterMain;
+import com.nzt.gdx.test.utils.archi.screens.ScreenTry;
+import com.nzt.gdx.test.utils.screen_selector.TestScreen;
 
 import java.util.concurrent.TimeUnit;
 
-@TestScreenList(group = "perf")
-public abstract class BaseB2DPerfST extends TestScreen {
+@TestScreen (group = "perf")
+public abstract class BaseB2DPerfST extends ScreenTry {
 
     public final float PPM = B2dTestConstants.PPM;
     protected Camera camera;
@@ -124,14 +124,14 @@ public abstract class BaseB2DPerfST extends TestScreen {
      * Walls autour du screen
      */
     public void createWallScreen() {
-        Rectangle botHorizontal = new Rectangle(-com.nzt.gdx.test.trials.st.B2dTestConstants.WIDTH / 2, -com.nzt.gdx.test.trials.st.B2dTestConstants.HEIGHT / 2,
-                com.nzt.gdx.test.trials.st.B2dTestConstants.WIDTH, 1);
-        Rectangle topHorizontal = new Rectangle(-com.nzt.gdx.test.trials.st.B2dTestConstants.WIDTH / 2, com.nzt.gdx.test.trials.st.B2dTestConstants.HEIGHT / 2,
-                com.nzt.gdx.test.trials.st.B2dTestConstants.WIDTH, 1);
-        Rectangle leftVertical = new Rectangle(-com.nzt.gdx.test.trials.st.B2dTestConstants.WIDTH / 2, -com.nzt.gdx.test.trials.st.B2dTestConstants.HEIGHT / 2, 1,
-                com.nzt.gdx.test.trials.st.B2dTestConstants.HEIGHT);
-        Rectangle rightVertical = new Rectangle(com.nzt.gdx.test.trials.st.B2dTestConstants.WIDTH / 2, -com.nzt.gdx.test.trials.st.B2dTestConstants.HEIGHT / 2, 1,
-                com.nzt.gdx.test.trials.st.B2dTestConstants.HEIGHT);
+        Rectangle botHorizontal = new Rectangle(-B2dTestConstants.WIDTH / 2, -B2dTestConstants.HEIGHT / 2,
+                B2dTestConstants.WIDTH, 1);
+        Rectangle topHorizontal = new Rectangle(-B2dTestConstants.WIDTH / 2, B2dTestConstants.HEIGHT / 2,
+                B2dTestConstants.WIDTH, 1);
+        Rectangle leftVertical = new Rectangle(-B2dTestConstants.WIDTH / 2, -B2dTestConstants.HEIGHT / 2, 1,
+                B2dTestConstants.HEIGHT);
+        Rectangle rightVertical = new Rectangle(B2dTestConstants.WIDTH / 2, -B2dTestConstants.HEIGHT / 2, 1,
+                B2dTestConstants.HEIGHT);
         FixtureDefWrapper fixtureWall = new FixtureDefWrapper(BodyDef.BodyType.StaticBody).
                 setSensor(false).setDensity(1)
                 .setRestitution(1).setToPPM(true);

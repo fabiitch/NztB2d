@@ -10,15 +10,15 @@ import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.utils.Array;
 import com.nzt.b2d.FixtureDefWrapper;
 import com.nzt.b2d.test.runner.BaseB2DSystemTestScreen;
+import com.nzt.b2d.test.screens.B2dTestConstants;
 import com.nzt.b2d.utils.B2dCollisionUtils;
 import com.nzt.gdx.ashley.components.renders.SpriteComponent;
 import com.nzt.gdx.ashley.systems.render.SpriteRenderSystem;
 import com.nzt.gdx.debug.hud.core.HudDebug;
-import com.nzt.gdx.test.trials.st.B2dTestConstants;
-import com.nzt.gdx.test.trials.tester.archi.mains.FastTesterMain;
-import com.nzt.gdx.test.trials.tester.selector.TestScreenList;
+import com.nzt.gdx.test.utils.archi.mains.mains.FastTesterMain;
+import com.nzt.gdx.test.utils.screen_selector.TestScreen;
 
-@TestScreenList(group = "collisions.filter")
+@TestScreen(group = "collisions.filter")
 abstract class CollisionFilterTestScreen extends BaseB2DSystemTestScreen {
     protected final Texture badLogicTexture;
     protected FixtureDefWrapper fixture1, fixture2, fixture3, fixture4;

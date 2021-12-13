@@ -1,10 +1,10 @@
 package com.nzt.b2d.test.screens.collisions.forces.balls;
 
 import com.badlogic.gdx.math.Vector2;
-import com.nzt.gdx.test.trials.tester.archi.mains.FastTesterMain;
-import com.nzt.gdx.test.trials.tester.selector.TestScreenList;
+import com.nzt.gdx.test.utils.archi.mains.mains.FastTesterMain;
+import com.nzt.gdx.test.utils.screen_selector.TestScreen;
 
-@TestScreenList(group = "collisions.forces")
+@TestScreen(group = "collisions.forces")
 public class STBallTwoDirCollision extends BaseSTBallCollision {
     public STBallTwoDirCollision(FastTesterMain main) {
         super(main);

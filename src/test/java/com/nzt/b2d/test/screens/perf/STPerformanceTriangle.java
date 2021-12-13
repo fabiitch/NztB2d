@@ -7,7 +7,7 @@ import com.nzt.b2d.FixtureDefWrapper;
 import com.nzt.b2d.test.screens.B2dTestConstants;
 import com.nzt.gdx.math.shapes.Triangle;
 import com.nzt.gdx.math.shapes.builders.TriangleBuilder;
-import com.nzt.gdx.test.trials.tester.archi.mains.FastTesterMain;
+import com.nzt.gdx.test.utils.archi.mains.mains.FastTesterMain;
 
 public class STPerformanceTriangle extends BaseB2DPerfST {
 

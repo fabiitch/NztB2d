@@ -11,12 +11,12 @@ import com.nzt.b2d.events.type.fixture.impl.SensorFixtureEvent;
 import com.nzt.b2d.factories.B2dFixtureEventFactory;
 import com.nzt.b2d.test.runner.BaseB2DSystemTestScreen;
 import com.nzt.gdx.debug.hud.core.HudDebug;
-import com.nzt.gdx.test.trials.tester.archi.mains.FastTesterMain;
-import com.nzt.gdx.test.trials.tester.selector.TestScreenList;
+import com.nzt.gdx.test.utils.archi.mains.mains.FastTesterMain;
+import com.nzt.gdx.test.utils.screen_selector.TestScreen;
 
 import java.util.concurrent.Callable;
 
-@TestScreenList
+@TestScreen
 public class STFixtureEvent extends BaseB2DSystemTestScreen {
     Body circleBody;
     Entity entity;

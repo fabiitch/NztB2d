@@ -6,10 +6,10 @@ import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.nzt.b2d.FixtureDefWrapper;
 import com.nzt.b2d.test.runner.BaseB2DTestScreen;
-import com.nzt.gdx.test.trials.tester.archi.mains.FastTesterMain;
-import com.nzt.gdx.test.trials.tester.selector.TestScreenList;
+import com.nzt.gdx.test.utils.archi.mains.mains.FastTesterMain;
+import com.nzt.gdx.test.utils.screen_selector.TestScreen;
 
-@TestScreenList(group = "collisions.forces")
+@TestScreen(group = "collisions.forces")
 public class STAsyncCollision extends BaseB2DTestScreen {
     Body circleBody, rectBody;
 

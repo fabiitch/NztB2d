@@ -1,7 +1,7 @@
 package com.nzt.b2d.test;
 
 import com.nzt.b2d.test.screens.systems.STDebugDisplaySystemTest;
-import com.nzt.gdx.test.trials.tester.archi.mains.SingleScreenTestMain;
+import com.nzt.gdx.test.utils.archi.mains.mains.SingleScreenTestMain;
 
 /**
  * Use it for Test one class with screenTestClass

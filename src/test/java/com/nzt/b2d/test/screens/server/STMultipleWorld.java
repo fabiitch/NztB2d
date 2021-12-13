@@ -10,12 +10,12 @@ import com.badlogic.gdx.physics.box2d.World;
 import com.nzt.b2d.FixtureDefWrapper;
 import com.nzt.b2d.factories.B2dBodyFactory;
 import com.nzt.b2d.test.screens.B2dTestConstants;
-import com.nzt.gdx.test.trials.tester.archi.mains.FastTesterMain;
-import com.nzt.gdx.test.trials.tester.archi.screens.TestScreen;
-import com.nzt.gdx.test.trials.tester.selector.TestScreenList;
+import com.nzt.gdx.test.utils.archi.mains.mains.FastTesterMain;
+import com.nzt.gdx.test.utils.archi.screens.ScreenTry;
+import com.nzt.gdx.test.utils.screen_selector.TestScreen;
 
-@TestScreenList
-public class STMultipleWorld extends TestScreen {
+@TestScreen
+public class STMultipleWorld extends ScreenTry {
     private final Camera camera;
     private final World world1;
     private final World world2;

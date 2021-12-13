@@ -10,13 +10,13 @@ import com.badlogic.gdx.physics.box2d.World;
 import com.nzt.b2d.debug.B2dHudDebug;
 import com.nzt.b2d.debug.B2dUserDataDrawer;
 import com.nzt.b2d.factories.B2dBodyFactory;
+import com.nzt.b2d.test.screens.B2dTestConstants;
 import com.nzt.b2d.utils.B2dConverterHelper;
 import com.nzt.gdx.input.impl.simple.SimpleClickInputHandler;
-import com.nzt.gdx.test.trials.st.B2dTestConstants;
-import com.nzt.gdx.test.trials.tester.archi.mains.FastTesterMain;
-import com.nzt.gdx.test.trials.tester.archi.screens.TestScreen;
+import com.nzt.gdx.test.utils.archi.mains.mains.FastTesterMain;
+import com.nzt.gdx.test.utils.archi.screens.ScreenTry;
 
-public abstract class BaseB2DTestScreen extends TestScreen {
+public abstract class BaseB2DTestScreen extends ScreenTry {
     public final float PPM = B2dTestConstants.PPM;
     public final B2dConverterHelper b2DConverter = new B2dConverterHelper(PPM);
     public final World world;
