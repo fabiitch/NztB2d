@@ -28,7 +28,7 @@ abstract class CollisionFilterTestScreen extends BaseB2DSystemTestScreen {
     public CollisionFilterTestScreen(FastTesterMain main) {
         super(main);
         badLogicTexture = new Texture("badlogic.jpg");
-        SpriteRenderSystem spriteRenderSystem = new SpriteRenderSystem(camera, spriteBatch);
+        SpriteRenderSystem spriteRenderSystem = new SpriteRenderSystem(camera, spriteBatch,10);
         engine.addSystem(spriteRenderSystem);
 
         fixture1 = new FixtureDefWrapper(BodyDef.BodyType.DynamicBody).setSensor(false).setDensity(1).setToPPM(false);

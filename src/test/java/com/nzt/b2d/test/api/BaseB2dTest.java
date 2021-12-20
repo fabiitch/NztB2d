@@ -6,7 +6,6 @@ import com.nzt.b2d.factories.B2dBodyFactory;
 import com.nzt.b2d.test.screens.B2dTestConstants;
 import com.nzt.gdx.test.st.tester.UnitTestScreen;
 import com.nzt.gdx.test.utils.archi.mains.mains.FastTesterMain;
-import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 
 public abstract class BaseB2dTest extends UnitTestScreen {
@@ -17,21 +16,23 @@ public abstract class BaseB2dTest extends UnitTestScreen {
         super(main);
     }
 
+    public BaseB2dTest() {
+        super();
+    }
 
     @BeforeEach
-    public void init() {
+    public void initWorld() {
         this.world = new World(Vector2.Zero, true);
         this.bodyFactory = new B2dBodyFactory(world, B2dTestConstants.PPM);
     }
 
-
-    @AfterEach
-    public void dispose() {
+    @Override
+    public void disposeTestScreen() {
         world.dispose();
     }
 
     @Override
-    public void renderTest(float dt) {
+    public void renderTestScreen(float dt) {
         world.step(dt, 6, 2);
 
     }

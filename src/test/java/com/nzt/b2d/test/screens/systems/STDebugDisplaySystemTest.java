@@ -19,7 +19,7 @@ public class STDebugDisplaySystemTest extends BaseB2DSystemTestScreen {
         this.world.setGravity(new Vector2(0, -1));
         createWallScreen();
         init();
-        DebugDisplaySystem debugDisplaySystem = new DebugDisplaySystem(main.sb, camera, 1 / B2dTestConstants.PPM);
+        DebugDisplaySystem debugDisplaySystem = new DebugDisplaySystem(main.sb, camera, 1 / B2dTestConstants.PPM,10);
         engine.addSystem(debugDisplaySystem);
     }
 

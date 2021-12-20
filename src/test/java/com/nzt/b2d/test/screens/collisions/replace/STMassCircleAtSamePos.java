@@ -18,7 +18,7 @@ public class STMassCircleAtSamePos extends BaseB2DSystemTestScreen {
                 .setDensity(1).setToPPM(false);
         this.world.setGravity(new Vector2(0, 0));
 
-        DebugDisplaySystem debugDisplaySystem = new DebugDisplaySystem(main.sb, camera, 1 / B2dTestConstants.PPM);
+        DebugDisplaySystem debugDisplaySystem = new DebugDisplaySystem(main.sb, camera, 1 / B2dTestConstants.PPM, 10);
         engine.addSystem(debugDisplaySystem);
         for (int i = 0; i < 200; i++) {
             bodyFactory.createCircleBody(Vector2.Zero, 0.2f, fixtureDefWrapper);

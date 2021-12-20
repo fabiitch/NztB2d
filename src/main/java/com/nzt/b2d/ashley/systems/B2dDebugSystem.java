@@ -5,7 +5,6 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.physics.box2d.Box2DDebugRenderer;
 import com.badlogic.gdx.physics.box2d.World;
 import com.nzt.b2d.debug.B2dHudDebug;
-import com.nzt.gdx.ashley.NztSystemsOrder;
 import com.nzt.gdx.ashley.base.systems.NzEntitySystem;
 import com.nzt.gdx.debug.hud.HudDebugPosition;
 import com.nzt.gdx.debug.perf.PerformanceFrame;
@@ -35,10 +34,6 @@ public class B2dDebugSystem extends NzEntitySystem {
         debugRenderer.setDrawInactiveBodies(true);
 
         PerformanceFrame.addSystem(this);
-    }
-
-    public B2dDebugSystem(World world, Camera camera) {
-        this(world, camera, NztSystemsOrder.B2D_DEBUG);
     }
 
     public void initHudDebug(int positionOnStage, Color color) {

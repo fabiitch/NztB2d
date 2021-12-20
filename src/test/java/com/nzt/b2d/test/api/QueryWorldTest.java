@@ -5,10 +5,19 @@ import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.Fixture;
 import com.badlogic.gdx.physics.box2d.QueryCallback;
 import com.nzt.b2d.FixtureDefWrapper;
+import com.nzt.gdx.test.utils.archi.mains.mains.FastTesterMain;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class QueryWorldTest extends BaseB2dTest {
+    public QueryWorldTest(FastTesterMain main) {
+        super(main);
+    }
+
+    public QueryWorldTest() {
+        super();
+    }
+
     @Test
     public void queryWorldTest() {
         FixtureDefWrapper fixtureDefWrapper = new FixtureDefWrapper(BodyDef.BodyType.DynamicBody);

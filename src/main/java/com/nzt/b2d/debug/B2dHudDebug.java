@@ -5,6 +5,7 @@ import com.badlogic.gdx.physics.box2d.World;
 import com.nzt.gdx.debug.hud.HudDebugPosition;
 import com.nzt.gdx.debug.hud.core.HudDebug;
 
+//TODO si pas use a delete
 public class B2dHudDebug {
 
 

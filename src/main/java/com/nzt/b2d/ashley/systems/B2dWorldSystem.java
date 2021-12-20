@@ -9,7 +9,6 @@ import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.Array;
 import com.nzt.b2d.ashley.components.B2dBodyComponent;
 import com.nzt.b2d.ashley.components.B2dEntityUtils;
-import com.nzt.gdx.ashley.NztSystemsOrder;
 import com.nzt.gdx.ashley.components.mvt.PositionComponent;
 import com.nzt.gdx.debug.perf.PerformanceFrame;
 
@@ -19,12 +18,12 @@ import com.nzt.gdx.debug.perf.PerformanceFrame;
 public class B2dWorldSystem extends IteratingSystem {
     private final static ComponentMapper<B2dBodyComponent> b2dMapper = B2dBodyComponent.mapper;
 
-    private static final float MAX_STEP_TIME = 1 / 60f;
-    private float accumulator = 0f;
+    public static final float MAX_STEP_TIME = 1 / 60f; //todo rendre dynamique
+    public float accumulator = 0f;
 
-    private final World world;
-    private final Array<Entity> bodiesQueue;
-    private final Array<Entity> toRemove;
+    public final World world;
+    public final Array<Entity> bodiesQueue;
+    public final Array<Entity> toRemove;
 
     private final boolean calculRotation;
 
@@ -35,10 +34,6 @@ public class B2dWorldSystem extends IteratingSystem {
         this.toRemove = new Array();
         this.calculRotation = calculRotation;
         PerformanceFrame.addSystem(this);
-    }
-
-    public B2dWorldSystem(World world, boolean calculRotation) {
-        this(world, calculRotation, NztSystemsOrder.B2D);
     }
 
     public void dispose() {

@@ -22,7 +22,7 @@ import com.nzt.b2d.utils.B2dConverterHelper;
 import com.nzt.gdx.input.impl.simple.MouseInputHandler;
 import com.nzt.gdx.test.utils.archi.mains.mains.FastTesterMain;
 import com.nzt.gdx.test.utils.archi.screens.BaseSystemTestScreen;
-import com.nzt.gdx.test.utils.archi.systems.HudSystem;
+import com.nzt.gdx.test.utils.archi.systems.HudSystemAdapter;
 
 import java.util.ArrayList;
 
@@ -60,13 +60,13 @@ public abstract class BaseB2DSystemTestScreen extends BaseSystemTestScreen {
         this.camera.position.set(0, 0, 0);
         this.camera.lookAt(0, 0, 0);
 
-        HudSystem hudSystem = new HudSystem(nzStage);
+        HudSystemAdapter hudSystem = new HudSystemAdapter(nzStage);
         engine.addSystem(hudSystem);
 
         this.world = new World(Vector2.Zero, true);
-        this.b2dWorldSystem = new B2dWorldSystem(world, true);
-        B2dApplyEventsSystem b2DApplyEventsSystem = new B2dApplyEventsSystem(world);
-        this.b2DDebugSystem = new B2dDebugSystem(world, camera);
+        this.b2dWorldSystem = new B2dWorldSystem(world, true,2);
+        B2dApplyEventsSystem b2DApplyEventsSystem = new B2dApplyEventsSystem(world,1);
+        this.b2DDebugSystem = new B2dDebugSystem(world, camera,10);
         b2DDebugSystem.initHudDebug();
 
         bodyFactory = new B2dBodyFactory(world, B2dTestConstants.PPM);
