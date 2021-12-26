@@ -18,7 +18,6 @@ public class B2dEntityUtils {
 
     public static void updatePositionFromBody(Entity entity) {
         B2dBodyComponent b2DBodyComponent = b2dMapper.get(entity);
-
         Vector2 position = b2DBodyComponent.body.getPosition();
 
         PositionComponent positionComponent = posMapper.get(entity);
