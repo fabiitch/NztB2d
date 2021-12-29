@@ -4,6 +4,7 @@ import com.badlogic.ashley.core.ComponentMapper;
 import com.badlogic.ashley.core.Entity;
 import com.badlogic.ashley.core.Family;
 import com.badlogic.ashley.systems.IteratingSystem;
+import com.badlogic.ashley.utils.ImmutableArray;
 import com.badlogic.gdx.physics.box2d.ContactListener;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.Array;
@@ -18,76 +19,56 @@ import com.nzt.gdx.debug.perf.PerformanceFrame;
 public class B2dWorldSystem extends IteratingSystem {
     private final static ComponentMapper<B2dBodyComponent> b2dMapper = B2dBodyComponent.mapper;
 
-    public static final float MAX_STEP_TIME = 1 / 60f; //todo rendre dynamique
-    public float accumulator = 0f;
+    private float accumulator = 0f;
 
+    public B2dWorldConfig config;
     public final World world;
-    public final Array<Entity> bodiesQueue;
-    public final Array<Entity> toRemove;
 
-    private final boolean calculRotation;
-
-    public B2dWorldSystem(World world, boolean calculRotation, int order) {
+    public B2dWorldSystem(World world, B2dWorldConfig config, int order) {
         super(Family.all(B2dBodyComponent.class, PositionComponent.class).get(), order);
+        this.config = config;
         this.world = world;
-        this.bodiesQueue = new Array<>();
-        this.toRemove = new Array();
-        this.calculRotation = calculRotation;
         PerformanceFrame.addSystem(this);
     }
 
     public void dispose() {
         this.world.dispose();
-        this.bodiesQueue.clear();
-    }
-
-    public void setContactListener(ContactListener contactListener) {
-        world.setContactListener(contactListener);
     }
 
     @Override
     public void update(float deltaTime) {
         PerformanceFrame.startSystem(this);
-        super.update(deltaTime);
+        ImmutableArray<Entity> entities = getEntities();
+
         float frameTime = Math.min(deltaTime, 0.25f);
         accumulator += frameTime;
-        if (accumulator >= MAX_STEP_TIME) {
-            while (accumulator >= MAX_STEP_TIME) {
-                world.step(MAX_STEP_TIME, 6, 2);
-                for (int i = 0, n = bodiesQueue.size; i < n; i++) {
-                    Entity entity = bodiesQueue.get(i);
-                    B2dBodyComponent bodyComp = b2dMapper.get(entity);
-                    if (bodyComp.doDestroy) {
-                        bodyComp.destroyBody(world);
-                        toRemove.add(entity);
-                    } else {
-                        bodyComp.processAllEvents();
-                    }
+        while (accumulator >= config.stepTime) {
+            world.step(config.stepTime, config.velocityIterations, config.positionIerations);
+            for (int i = 0, n = entities.size(); i < n; i++) {
+                Entity entity = entities.get(i);
+                B2dBodyComponent bodyComp = b2dMapper.get(entity);
+                if (bodyComp.doDestroy) {
+                    bodyComp.destroyBody(world);
+                    entity.remove(B2dBodyComponent.class);
+                } else {
+                    bodyComp.processAllEvents();
                 }
-                // remove entity destroyed
-                for (int i = 0, n = toRemove.size; i < n; i++) {
-                    bodiesQueue.removeValue(toRemove.get(i), true);
-                }
-                toRemove.clear();
-
-                accumulator -= MAX_STEP_TIME;
             }
-            // Entity Queue
-            for (int i = 0, n = bodiesQueue.size; i < n; i++) {
-                Entity entity = bodiesQueue.get(i);
-                B2dEntityUtils.updatePositionFromBody(entity);
-                B2dEntityUtils.updateVelocityFromBody(entity);
-                if (calculRotation)
-                    B2dEntityUtils.updateAngleFromBody(entity);
-            }
+            accumulator -= config.stepTime;
         }
-        bodiesQueue.clear();
+        // Entity Queue
+        for (int i = 0, n = entities.size(); i < n; i++) {
+            Entity entity = entities.get(i);
+            B2dEntityUtils.updatePositionFromBody(entity);
+            B2dEntityUtils.updateVelocityFromBody(entity);
+            if (config.calculRotation)
+                B2dEntityUtils.updateAngleFromBody(entity);
+        }
         PerformanceFrame.endSystem(this);
     }
 
     //TODO a changer complet avec un listener
     @Override
     protected void processEntity(Entity entity, float deltaTime) {
-        bodiesQueue.add(entity);
     }
 }

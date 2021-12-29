@@ -25,6 +25,7 @@ public class B2dApplyEventsSystem extends NzIteratingSystem {
         B2dBodyComponent bodyComp = b2dMapper.get(entity);
         if (bodyComp.doDestroy) {
             bodyComp.destroyBody(world);
+            entity.remove(B2dBodyComponent.class);
         } else {
             bodyComp.processAllEvents();
         }

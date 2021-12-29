@@ -14,13 +14,14 @@ import com.badlogic.gdx.physics.box2d.joints.MouseJointDef;
 import com.nzt.b2d.FixtureDefWrapper;
 import com.nzt.b2d.ashley.systems.B2dApplyEventsSystem;
 import com.nzt.b2d.ashley.systems.B2dDebugSystem;
+import com.nzt.b2d.ashley.systems.B2dWorldConfig;
 import com.nzt.b2d.ashley.systems.B2dWorldSystem;
 import com.nzt.b2d.factories.B2dBodyFactory;
 import com.nzt.b2d.test.screens.B2dTestConstants;
 import com.nzt.b2d.test.utils.B2dEntityFactory;
 import com.nzt.b2d.utils.B2dConverterHelper;
 import com.nzt.gdx.input.impl.simple.MouseInputHandler;
-import com.nzt.gdx.test.utils.archi.mains.mains.FastTesterMain;
+import com.nzt.gdx.test.utils.archi.mains.dev.FastTesterMain;
 import com.nzt.gdx.test.utils.archi.screens.BaseSystemTestScreen;
 import com.nzt.gdx.test.utils.archi.systems.HudSystemAdapter;
 
@@ -64,7 +65,7 @@ public abstract class BaseB2DSystemTestScreen extends BaseSystemTestScreen {
         engine.addSystem(hudSystem);
 
         this.world = new World(Vector2.Zero, true);
-        this.b2dWorldSystem = new B2dWorldSystem(world, true,2);
+        this.b2dWorldSystem = new B2dWorldSystem(world, new B2dWorldConfig(),2);
         B2dApplyEventsSystem b2DApplyEventsSystem = new B2dApplyEventsSystem(world,1);
         this.b2DDebugSystem = new B2dDebugSystem(world, camera,10);
         b2DDebugSystem.initHudDebug();
