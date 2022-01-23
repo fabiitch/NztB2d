@@ -22,13 +22,10 @@ repositories {
 }
 ext {
     gdxVersion = '1.10.0'
-    roboVMVersion = '2.3.12'
-    ashleyVersion = '1.7.4'
     mockitoVersion = '3.11.2'
     junitVersion = "5.7.0"
 }
 dependencies {
-    api project(':NztGdx')
     api "com.badlogicgames.gdx:gdx-box2d:$gdxVersion"
 
     testImplementation "org.junit.jupiter:junit-jupiter:$junitVersion"
@@ -36,12 +33,6 @@ dependencies {
     testImplementation "org.mockito:mockito-core:$mockitoVersion"
     testImplementation group: 'org.reflections', name: 'reflections', version: '0.9.12'
 
-    testImplementation project(path: ":NztGdx", configuration: 'testArtifacts')
-    testImplementation "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
-    testImplementation "com.badlogicgames.gdx:gdx-backend-headless:$gdxVersion"
-    testImplementation "com.badlogicgames.gdx:gdx-backend-lwjgl3:$gdxVersion"
-    testImplementation "com.badlogicgames.gdx:gdx-box2d-platform:$gdxVersion:natives-desktop"
-    testImplementation "com.badlogicgames.gdx:gdx-freetype-platform:$gdxVersion:natives-desktop"
 }
 
 test {
