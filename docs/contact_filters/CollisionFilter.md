@@ -2,6 +2,25 @@ Box2D Tutorial: Collision filtering
 ===================================
 [original article](https://www.aurelienribon.com/post/2011-07-box2d-tutorial-collision-filtering)
 
+LibGdx code : 
+````java
+private boolean contactFilter (long fixtureA, long fixtureB) {
+		if (contactFilter != null)
+			return contactFilter.shouldCollide(fixtures.get(fixtureA), fixtures.get(fixtureB));
+		else {
+			Filter filterA = fixtures.get(fixtureA).getFilterData();
+			Filter filterB = fixtures.get(fixtureB).getFilterData();
+
+			if (filterA.groupIndex == filterB.groupIndex && filterA.groupIndex != 0) {
+				return filterA.groupIndex > 0;
+			}
+
+			boolean collide = (filterA.maskBits & filterB.categoryBits) != 0 && (filterA.categoryBits & filterB.maskBits) != 0;
+			return collide;
+		}
+	}
+````
+
 Box2D C++ Function ShouldCollide
 --------------------
 
