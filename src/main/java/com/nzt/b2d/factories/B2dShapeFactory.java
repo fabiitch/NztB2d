@@ -9,10 +9,14 @@ import com.badlogic.gdx.physics.box2d.PolygonShape;
 
 public class B2dShapeFactory {
 
-    public static PolygonShape rectangle(Rectangle rect) {
+    public static PolygonShape rectangle(float witdh, float height) {
         PolygonShape shape = new PolygonShape();
-        shape.setAsBox(rect.getWidth() / 2, rect.getHeight() / 2);
+        shape.setAsBox(witdh / 2, height / 2);
         return shape;
+    }
+
+    public static PolygonShape rectangle(Rectangle rect) {
+        return rectangle(rect.getWidth(), rect.getHeight());
     }
 
     public static PolygonShape polygon(Polygon polygon) {
@@ -30,4 +34,5 @@ public class B2dShapeFactory {
         shape.setRadius(radius);
         return shape;
     }
+
 }

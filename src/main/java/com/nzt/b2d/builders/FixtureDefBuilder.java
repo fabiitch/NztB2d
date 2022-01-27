@@ -2,6 +2,7 @@ package com.nzt.b2d.builders;
 
 import com.badlogic.gdx.math.Polygon;
 import com.badlogic.gdx.math.Rectangle;
+import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Filter;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.physics.box2d.Shape;
@@ -42,6 +43,16 @@ public class FixtureDefBuilder {
 
     public FixtureDefBuilder rectangleShape(Rectangle rect) {
         fixtureDef.shape = B2dShapeFactory.rectangle(rect);
+        return this;
+    }
+
+    public FixtureDefBuilder rectangleShape(Vector2 size) {
+        fixtureDef.shape = B2dShapeFactory.rectangle(size.x, size.y);
+        return this;
+    }
+
+    public FixtureDefBuilder rectangleShape(float witdh, float height) {
+        fixtureDef.shape = B2dShapeFactory.rectangle(witdh, height);
         return this;
     }
 
