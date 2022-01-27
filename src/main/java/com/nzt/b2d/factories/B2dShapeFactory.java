@@ -9,20 +9,25 @@ import com.badlogic.gdx.physics.box2d.PolygonShape;
 
 public class B2dShapeFactory {
 
-    public PolygonShape rectangle(Rectangle rect) {
+    public static PolygonShape rectangle(Rectangle rect) {
         PolygonShape shape = new PolygonShape();
         shape.setAsBox(rect.getWidth() / 2, rect.getHeight() / 2);
         return shape;
     }
 
-    public PolygonShape polygon(Polygon polygon) {
+    public static PolygonShape polygon(Polygon polygon) {
         PolygonShape shape = new PolygonShape();
         shape.set(polygon.getTransformedVertices());
         return shape;
     }
-    public CircleShape circle(Circle circle){
+
+    public static CircleShape circle(Circle circle) {
+        return circle(circle.radius);
+    }
+
+    public static CircleShape circle(float radius) {
         CircleShape shape = new CircleShape();
-        shape.setRadius(circle.radius);
+        shape.setRadius(radius);
         return shape;
     }
 }

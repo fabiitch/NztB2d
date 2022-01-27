@@ -9,8 +9,8 @@ import com.nzt.b2d.events.B2dEventsEnum;
 import com.nzt.b2d.events.type.mvt.*;
 import com.nzt.b2d.events.type.properties.*;
 
-public class B2dEventFactory {
-    private B2dEventFactory() {
+public class B2dBodyEventFactory {
+    private B2dBodyEventFactory() {
 
     }
 
