@@ -21,7 +21,7 @@ repositories {
     maven { url "https://oss.sonatype.org/content/repositories/releases/" }
 }
 ext {
-    gdxVersion = '1.10.0'
+    gdxVersion = '1.11.0'
     mockitoVersion = '3.11.2'
     junitVersion = "5.7.0"
 }
