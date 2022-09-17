@@ -1,1 +1,1 @@
-* Use custom pools for event
+* Use custom pools for gameEvent
