@@ -1,16 +1,17 @@
 plugins {
     id 'java-library'
 }
+
+group 'com.nzt.b2d'
+version '1.0-SNAPSHOT'
+
+
 sourceCompatibility = 1.8
 
 sourceSets.main.java.srcDirs = ["src/main/java"]
 sourceSets.main.resources.srcDirs = ["src/main/resources"]
 sourceSets.test.java.srcDirs = ["src/test/java"]
 sourceSets.test.resources.srcDirs = ["src/test/resources"]
-
-
-group 'com.nzt.b2d'
-version '1.0-SNAPSHOT'
 
 repositories {
     mavenLocal()
@@ -32,6 +33,7 @@ dependencies {
     testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$junitVersion"
     testImplementation "org.mockito:mockito-core:$mockitoVersion"
     testImplementation group: 'org.reflections', name: 'reflections', version: '0.9.12'
+    testImplementation "com.badlogicgames.gdx:gdx-box2d-platform:$gdxVersion:natives-desktop"
 
 }
 
