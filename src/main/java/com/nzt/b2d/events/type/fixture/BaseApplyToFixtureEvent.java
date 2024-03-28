@@ -4,9 +4,13 @@ import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.Fixture;
 import com.badlogic.gdx.utils.Array;
 import com.nzt.b2d.events.B2dFixtureEventsEnum;
+import lombok.Getter;
+import lombok.Setter;
 
-public abstract class BaseApplyToFixtureEvent<E extends BaseFixtureBodyEvent> extends BaseFixtureBodyEvent<E> {
-    public int fixtureNumber = -1;//-1 == to applyToAll
+@Getter
+@Setter
+public abstract class BaseApplyToFixtureEvent<E extends BaseApplyToFixtureEvent> extends BaseFixtureBodyEvent<E> {
+    private int fixtureNumber = -1;//-1 == to applyToAll
 
     public BaseApplyToFixtureEvent(B2dFixtureEventsEnum fixtureEnum) {
         super(fixtureEnum);
@@ -21,7 +25,12 @@ public abstract class BaseApplyToFixtureEvent<E extends BaseFixtureBodyEvent> ex
     }
 
     @Override
-    protected final void doReset() {
+    protected boolean canConcat(E event) {
+        return this.fixtureNumber == event.getFixtureNumber();
+    }
+
+    @Override
+    public void reset() {
         fixtureNumber = -1;
         resetFixtureEvent();
     }

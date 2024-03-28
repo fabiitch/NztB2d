@@ -1,3 +1,5 @@
+package com.nzt.b2d.test;
+
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
@@ -13,6 +15,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class DeterminismTestOneBody {
+
 
     @Test
     public void t1() { //no collision one body

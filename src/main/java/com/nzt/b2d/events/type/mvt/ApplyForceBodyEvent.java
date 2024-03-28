@@ -4,7 +4,11 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.nzt.b2d.events.B2dBaseEvent;
 import com.nzt.b2d.events.B2dEventsEnum;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 public class ApplyForceBodyEvent extends B2dBaseEvent<ApplyForceBodyEvent> {
 
     public Vector2 force;
@@ -21,7 +25,7 @@ public class ApplyForceBodyEvent extends B2dBaseEvent<ApplyForceBodyEvent> {
     }
 
     @Override
-    public void doReset() {
+    public void reset() {
         this.force.setZero();
         this.point.setZero();
         this.wake = false;

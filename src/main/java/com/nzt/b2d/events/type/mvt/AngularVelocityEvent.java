@@ -3,7 +3,11 @@ package com.nzt.b2d.events.type.mvt;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.nzt.b2d.events.B2dBaseEvent;
 import com.nzt.b2d.events.B2dEventsEnum;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 public class AngularVelocityEvent extends B2dBaseEvent<AngularVelocityEvent> {
 
     public float angularVelocity;
@@ -19,7 +23,7 @@ public class AngularVelocityEvent extends B2dBaseEvent<AngularVelocityEvent> {
     }
 
     @Override
-    public void doReset() {
+    public void reset() {
         this.angularVelocity = 0f;
     }
 

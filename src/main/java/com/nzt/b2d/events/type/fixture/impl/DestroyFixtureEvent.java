@@ -5,7 +5,11 @@ import com.badlogic.gdx.physics.box2d.Fixture;
 import com.badlogic.gdx.utils.Array;
 import com.nzt.b2d.events.B2dFixtureEventsEnum;
 import com.nzt.b2d.events.type.fixture.BaseApplyToFixtureEvent;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 public class DestroyFixtureEvent extends BaseApplyToFixtureEvent<DestroyFixtureEvent> {
 
     public DestroyFixtureEvent() {
@@ -14,7 +18,12 @@ public class DestroyFixtureEvent extends BaseApplyToFixtureEvent<DestroyFixtureE
 
     @Override
     protected boolean canConcat(DestroyFixtureEvent event) {
-        return false;
+        return event.getFixtureNumber() == this.getFixtureNumber();
+    }
+
+    @Override
+    protected void concat(DestroyFixtureEvent event) {
+
     }
 
     @Override
@@ -29,7 +38,7 @@ public class DestroyFixtureEvent extends BaseApplyToFixtureEvent<DestroyFixtureE
                 body.destroyFixture(fixture);
             }
         } else {
-            body.destroyFixture(fixtureList.get(fixtureNumber));
+            body.destroyFixture(fixtureList.get(getFixtureNumber()));
         }
     }
 

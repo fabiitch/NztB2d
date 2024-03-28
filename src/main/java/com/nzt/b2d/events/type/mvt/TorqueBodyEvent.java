@@ -3,7 +3,11 @@ package com.nzt.b2d.events.type.mvt;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.nzt.b2d.events.B2dBaseEvent;
 import com.nzt.b2d.events.B2dEventsEnum;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 public class TorqueBodyEvent extends B2dBaseEvent<TorqueBodyEvent> {
 
     public float torque;
@@ -21,7 +25,12 @@ public class TorqueBodyEvent extends B2dBaseEvent<TorqueBodyEvent> {
     }
 
     @Override
-    public void doReset() {
+    protected void concat(TorqueBodyEvent event) {
+
+    }
+
+    @Override
+    public void reset() {
         this.torque = 0f;
         this.wake = false;
     }

@@ -3,7 +3,11 @@ package com.nzt.b2d.events.type.mvt;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.nzt.b2d.events.B2dBaseEvent;
 import com.nzt.b2d.events.B2dEventsEnum;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 public class RotationBodyEvent extends B2dBaseEvent<RotationBodyEvent> {
 
     public float angleRadian;
@@ -29,7 +33,7 @@ public class RotationBodyEvent extends B2dBaseEvent<RotationBodyEvent> {
     }
 
     @Override
-    public void doReset() {
+    public void reset() {
         this.angleRadian = 0;
         this.priority = 0;
     }

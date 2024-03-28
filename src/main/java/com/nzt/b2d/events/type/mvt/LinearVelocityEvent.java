@@ -4,7 +4,11 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.nzt.b2d.events.B2dBaseEvent;
 import com.nzt.b2d.events.B2dEventsEnum;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 public class LinearVelocityEvent extends B2dBaseEvent<LinearVelocityEvent> {
 
     public Vector2 velocity = new Vector2();
@@ -20,7 +24,7 @@ public class LinearVelocityEvent extends B2dBaseEvent<LinearVelocityEvent> {
     }
 
     @Override
-    public void doReset() {
+    public void reset() {
         this.velocity.setZero();
     }
 

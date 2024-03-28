@@ -4,9 +4,13 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 public class B2dConverter {
-    public float PPM;
+    private float PPM;
 
     public B2dConverter(float ppm) {
         this.PPM = ppm;

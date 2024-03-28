@@ -1,3 +1,5 @@
+package com.nzt.b2d.test;
+
 import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;

@@ -4,18 +4,27 @@ import com.badlogic.gdx.physics.box2d.Fixture;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.nzt.b2d.events.B2dFixtureEventsEnum;
 import com.nzt.b2d.events.type.fixture.BaseApplyToFixtureEvent;
+import lombok.Getter;
+import lombok.Setter;
 
-public class ChangeFixtureEvent extends BaseApplyToFixtureEvent<ChangeFixtureEvent> {
+@Getter
+@Setter
+public class ChangeFixtureDefEvent extends BaseApplyToFixtureEvent<ChangeFixtureDefEvent> {
 
-    public FixtureDef fixtureDef;
+    private FixtureDef fixtureDef;
 
-    public ChangeFixtureEvent() {
+    public ChangeFixtureDefEvent() {
         super(B2dFixtureEventsEnum.Change);
     }
 
     @Override
-    protected boolean canConcat(ChangeFixtureEvent event) {
-        return false;
+    protected boolean canConcat(ChangeFixtureDefEvent event) {
+        return true;
+    }
+
+    @Override
+    protected void concat(ChangeFixtureDefEvent event) {
+        this.fixtureDef = event.getFixtureDef();
     }
 
 

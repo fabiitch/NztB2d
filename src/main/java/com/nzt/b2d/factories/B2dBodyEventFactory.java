@@ -14,11 +14,6 @@ public class B2dBodyEventFactory {
 
     }
 
-    // TODO voir pour groupé les events par parametre similaire pour maximiser les
-    // pools
-    // refléchir si le reset est vraiement utile, vu que l'on passe les param et =
-
-    // TODO reflechir au param wake si vraiement utile
     private static <E extends B2dBaseEvent> E getEvent(B2dEventsEnum eventType) {
         B2dBaseEvent event;
         switch (eventType) {

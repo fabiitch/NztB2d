@@ -3,7 +3,11 @@ package com.nzt.b2d.events.type.properties;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.nzt.b2d.events.B2dBaseEvent;
 import com.nzt.b2d.events.B2dEventsEnum;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 public class BulletBodyEvent extends B2dBaseEvent<BulletBodyEvent> {
 
     public boolean bullet;
@@ -18,7 +22,12 @@ public class BulletBodyEvent extends B2dBaseEvent<BulletBodyEvent> {
     }
 
     @Override
-    public void doReset() {
+    protected void concat(BulletBodyEvent event) {
+        this.bullet = event.bullet;
+    }
+
+    @Override
+    public void reset() {
         bullet = false;
     }
 

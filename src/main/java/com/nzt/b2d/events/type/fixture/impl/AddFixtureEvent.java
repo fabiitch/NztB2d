@@ -4,10 +4,14 @@ import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.nzt.b2d.events.B2dFixtureEventsEnum;
 import com.nzt.b2d.events.type.fixture.BaseFixtureBodyEvent;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 public class AddFixtureEvent extends BaseFixtureBodyEvent<AddFixtureEvent> {
 
-    public FixtureDef fixtureDef;
+    private FixtureDef fixtureDef;
 
     public AddFixtureEvent() {
         super(B2dFixtureEventsEnum.Add);
@@ -19,7 +23,12 @@ public class AddFixtureEvent extends BaseFixtureBodyEvent<AddFixtureEvent> {
     }
 
     @Override
-    protected void doReset() {
+    protected void concat(AddFixtureEvent event) {
+
+    }
+
+    @Override
+    public void reset() {
         fixtureDef = null;
     }
 

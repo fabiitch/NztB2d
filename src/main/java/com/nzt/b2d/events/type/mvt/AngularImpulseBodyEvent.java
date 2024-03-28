@@ -3,11 +3,16 @@ package com.nzt.b2d.events.type.mvt;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.nzt.b2d.events.B2dBaseEvent;
 import com.nzt.b2d.events.B2dEventsEnum;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 public class AngularImpulseBodyEvent extends B2dBaseEvent<AngularImpulseBodyEvent> {
 
     public float impulse;
     public boolean wake;
+    public boolean set;
 
     public AngularImpulseBodyEvent() {
         super(B2dEventsEnum.AngularImpulse);
@@ -21,7 +26,7 @@ public class AngularImpulseBodyEvent extends B2dBaseEvent<AngularImpulseBodyEven
     }
 
     @Override
-    public void doReset() {
+    public void reset() {
         this.impulse = 0f;
         this.wake = false;
     }

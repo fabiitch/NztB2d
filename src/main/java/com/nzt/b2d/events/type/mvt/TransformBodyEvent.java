@@ -4,7 +4,11 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.Body;
 import com.nzt.b2d.events.B2dBaseEvent;
 import com.nzt.b2d.events.B2dEventsEnum;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 public class TransformBodyEvent extends B2dBaseEvent<TransformBodyEvent> {
 
     public Vector2 positionTo = new Vector2();
@@ -32,7 +36,7 @@ public class TransformBodyEvent extends B2dBaseEvent<TransformBodyEvent> {
     }
 
     @Override
-    public void doReset() {
+    public void reset() {
         this.positionTo.setZero();
         this.rotation = 0;
         this.priority = 0;
