@@ -26,17 +26,17 @@ ext {
     gdxVersion = '1.12.0'
     mockitoVersion = '3.11.2'
     junitVersion = "5.7.0"
-    lombokVersion= "1.18.28"
+    lombokVersion= '1.18.28'
 }
 
 dependencies {
     api "com.badlogicgames.gdx:gdx-box2d:$gdxVersion"
 
-    compileOnly "org.projectlombok:lombok:$lombokVersion"
-    annotationProcessor "org.projectlombok:$lombokVersion"
+    compileOnly 'org.projectlombok:lombok:1.18.32'
+    annotationProcessor 'org.projectlombok:lombok:1.18.32'
 
-    testCompileOnly "org.projectlombok:lombok:$lombokVersion"
-    testAnnotationProcessor "org.projectlombok:$lombokVersion"
+    testCompileOnly 'org.projectlombok:lombok:1.18.32'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.32'
 
     testImplementation "org.junit.jupiter:junit-jupiter:$junitVersion"
     testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:$junitVersion"

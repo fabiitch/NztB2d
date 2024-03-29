@@ -1,20 +1,20 @@
-package com.nzt.b2d.events.type.fixture.impl;
+package com.nzt.b2d.events.type.properties;
 
-import com.badlogic.gdx.physics.box2d.Body;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
-import com.nzt.b2d.events.B2dFixtureEventsEnum;
-import com.nzt.b2d.events.type.fixture.BaseFixtureBodyEvent;
+import com.nzt.b2d.events.B2dEvent;
+import com.nzt.b2d.events.B2dEventsEnum;
+import com.nzt.b2d.wrapper.B2dBody;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-public class AddFixtureEvent extends BaseFixtureBodyEvent<AddFixtureEvent> {
+public class AddFixtureEvent extends B2dEvent<AddFixtureEvent> {
 
     private FixtureDef fixtureDef;
 
     public AddFixtureEvent() {
-        super(B2dFixtureEventsEnum.Add);
+        super(B2dEventsEnum.FixtureAdd);
     }
 
     @Override
@@ -26,10 +26,9 @@ public class AddFixtureEvent extends BaseFixtureBodyEvent<AddFixtureEvent> {
     protected void concat(AddFixtureEvent event) {
 
     }
-
     @Override
-    public void apply(Body body) {
-        body.createFixture(fixtureDef);
+    public void apply(B2dBody b2dBody) {
+        b2dBody.createFixture(fixtureDef);
     }
 
     @Override

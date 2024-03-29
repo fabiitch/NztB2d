@@ -1,9 +1,10 @@
 package com.nzt.b2d.wrapper;
 
 import com.badlogic.gdx.physics.box2d.Body;
-import com.nzt.b2d.events.B2dBaseEvent;
+import com.badlogic.gdx.physics.box2d.Fixture;
+import com.badlogic.gdx.physics.box2d.FixtureDef;
+import com.badlogic.gdx.utils.Array;
 import com.nzt.b2d.events.B2dEventContainer;
-import com.nzt.b2d.events.type.properties.B2dDestroyBodyEvent;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -13,15 +14,29 @@ public class B2dBody {
 
     private int id;
     private Body body;
-    private B2dEventContainer eventContainer = new B2dEventContainer();
-
     private boolean destroyed;
 
-    public void addEvent(B2dBaseEvent event) {
-        eventContainer.addEvent(event);
+    private final B2dEventContainer eventContainer = new B2dEventContainer();
+    private Array<B2dFixture> fixtures = new Array<>();
+
+    private B2dWorld b2dWorld;
+
+    public B2dBody(int id, Body body, B2dWorld b2dWorld) {
+        this.id = id;
+        this.body = body;
+        this.b2dWorld = b2dWorld;
     }
 
-    public void addEvent(B2dDestroyBodyEvent destroyEvent) {
-        eventContainer.addEvent(destroyEvent);
+
+    public void createFixture(FixtureDef fixtureDef) {
+        Fixture fixture = body.createFixture(fixtureDef);
     }
+    public void destroyFixture(B2dFixture fixtureToDestroy) {
+        B2dFixture b2dFixture = fixtures.get(1);
+        b2dFixture.setDestroyed(true);
+        body.destroyFixture(b2dFixture.getFixture());
+
+        eventContainer.removeEventsForFixture(fixtureToDestroy);
+    }
+
 }

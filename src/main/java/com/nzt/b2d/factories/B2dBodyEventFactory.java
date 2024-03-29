@@ -4,7 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.physics.box2d.BodyDef.BodyType;
 import com.badlogic.gdx.utils.Pools;
-import com.nzt.b2d.events.B2dBaseEvent;
+import com.nzt.b2d.events.B2dEvent;
 import com.nzt.b2d.events.B2dEventsEnum;
 import com.nzt.b2d.events.type.mvt.*;
 import com.nzt.b2d.events.type.properties.*;
@@ -14,8 +14,8 @@ public class B2dBodyEventFactory {
 
     }
 
-    private static <E extends B2dBaseEvent> E getEvent(B2dEventsEnum eventType) {
-        B2dBaseEvent event;
+    private static <E extends B2dEvent> E getEvent(B2dEventsEnum eventType) {
+        B2dEvent event;
         switch (eventType) {
             case Active:
                 event = Pools.obtain(ActiveBodyEvent.class);

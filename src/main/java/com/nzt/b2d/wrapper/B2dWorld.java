@@ -1,53 +1,65 @@
 package com.nzt.b2d.wrapper;
 
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.physics.box2d.Body;
+import com.badlogic.gdx.physics.box2d.BodyDef;
 import com.badlogic.gdx.physics.box2d.World;
 import com.badlogic.gdx.utils.Array;
-import com.nzt.b2d.events.B2dBaseEvent;
 import com.nzt.b2d.events.B2dEventContainer;
-import com.nzt.b2d.events.B2dEventsEnum;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 public class B2dWorld {
+    @Getter
     private World world;
+
+    @Getter
     private final Array<B2dBody> bodies = new Array<>();
 
+    @Getter
+    @Setter
+    private float stepTime = 1;
+    private int velocityIteration = 1, positionIteration = 1;
 
-    private final float STEP_TIME = 1;
-    private final int VELOCITY_ITERATION = 1;
-    private final int POSITION_ITERATION = 1;
+    private float stepTimeAccumulator = 0f;
+    private int idGenerator = 1;
 
-    private float ppm;
-    private float accumulator = 0f;
-
-    public B2dWorld(){
+    public B2dWorld() {
         world = new World(new Vector2(), true);
     }
 
 
-    public void step(float dt){
-        accumulator += dt;
-        while (accumulator >= STEP_TIME) {
-            world.step(STEP_TIME, VELOCITY_ITERATION, POSITION_ITERATION);
+    public void step(float dt) {
+        stepTimeAccumulator += dt;
+
+        while (stepTimeAccumulator >= stepTime) {
+            world.step(stepTime, velocityIteration, positionIteration);
             processEvents();
-            accumulator -= STEP_TIME;
+            stepTimeAccumulator -= stepTime;
         }
     }
+
     private void processEvents() {
         for (int i = 0, n = bodies.size; i < n; i++) {
-            B2dBody body = bodies.get(i);
-            B2dEventContainer eventContainer = body.getEventContainer();
-            for (B2dBaseEvent b2dBaseEvent : eventContainer.getEventArray()) {
-                if(b2dBaseEvent.getEventType() == B2dEventsEnum.Destroy.ordinal())
-                b2dBaseEvent.apply(body.getBody());
-            }
-
-            if (bodyComp.doDestroy) {
-                bodyComp.destroyBody(world);
-                entity.remove(B2dComponent.class);
-            } else {
-                bodyComp.processAllEvents();
-            }
+            B2dBody b2dBody = bodies.get(i);
+            B2dEventContainer eventContainer = b2dBody.getEventContainer();
+            eventContainer.process(b2dBody);
         }
     }
 
+    public B2dBody createBody(BodyDef bodyDef) {
+        Body body = world.createBody(bodyDef);
+        B2dBody b2dBody = new B2dBody(idGenerator++, body, this);
+        bodies.add(b2dBody);
+        return b2dBody;
+    }
+
+
+
+    public void destroyBody(B2dBody b2dBody) {
+        world.destroyBody(b2dBody.getBody());
+        b2dBody.setDestroyed(true);
+    }
 }

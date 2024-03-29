@@ -1,19 +1,20 @@
 package com.nzt.b2d.events.type.fixture.impl;
 
 import com.badlogic.gdx.physics.box2d.Fixture;
-import com.nzt.b2d.events.B2dFixtureEventsEnum;
-import com.nzt.b2d.events.type.fixture.BaseApplyToFixtureEvent;
+import com.nzt.b2d.events.B2dEventsEnum;
+import com.nzt.b2d.events.type.fixture.B2dFixtureEvent;
+import com.nzt.b2d.wrapper.B2dFixture;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-public class SensorFixtureEvent extends BaseApplyToFixtureEvent<SensorFixtureEvent> {
+public class SensorFixtureEvent extends B2dFixtureEvent<SensorFixtureEvent> {
 
     private boolean sensor;
 
     public SensorFixtureEvent() {
-        super(B2dFixtureEventsEnum.Sensor);
+        super(B2dEventsEnum.FixtureSensor);
     }
 
     @Override
@@ -33,8 +34,9 @@ public class SensorFixtureEvent extends BaseApplyToFixtureEvent<SensorFixtureEve
     }
 
     @Override
-    public void applyOnFixture(Fixture fixture) {
-        fixture.setSensor(sensor);
+    public void applyOnFixture(B2dFixture b2dFixture) {
+        b2dFixture.getFixture().setSensor(sensor);
     }
+
 
 }

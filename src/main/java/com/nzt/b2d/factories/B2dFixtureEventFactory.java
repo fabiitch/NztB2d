@@ -4,10 +4,11 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.physics.box2d.Filter;
 import com.badlogic.gdx.physics.box2d.FixtureDef;
 import com.badlogic.gdx.utils.Pools;
-import com.nzt.b2d.events.B2dBaseEvent;
-import com.nzt.b2d.events.B2dFixtureEventsEnum;
-import com.nzt.b2d.events.type.fixture.BaseFixtureBodyEvent;
+import com.nzt.b2d.events.B2dEvent;
+import com.nzt.b2d.events.B2dEventsEnum;
 import com.nzt.b2d.events.type.fixture.impl.*;
+import com.nzt.b2d.events.type.properties.AddFixtureEvent;
+import com.nzt.b2d.wrapper.B2dFixture;
 
 public class B2dFixtureEventFactory {
 
@@ -15,26 +16,23 @@ public class B2dFixtureEventFactory {
 
     }
 
-    private static <E extends BaseFixtureBodyEvent> E getEvent(B2dFixtureEventsEnum eventType) {
-        B2dBaseEvent event;
+    private static <E extends B2dEvent> E getEvent(B2dEventsEnum eventType) {
+        B2dEvent event;
         switch (eventType) {
-            case Add:
+            case FixtureAdd:
                 event = Pools.obtain(AddFixtureEvent.class);
                 break;
-            case Destroy:
+            case FixtureDestroy:
                 event = Pools.obtain(DestroyFixtureEvent.class);
                 break;
-            case Change:
+            case FixtureDefChange:
                 event = Pools.obtain(ChangeFixtureDefEvent.class);
                 break;
-            case Sensor:
+            case FixtureSensor:
                 event = Pools.obtain(SensorFixtureEvent.class);
                 break;
-            case Filter:
+            case FixtureFilter:
                 event = Pools.obtain(FilterDataFixtureEvent.class);
-                break;
-            case UserData:
-                event = Pools.obtain(UserDataFixtureEvent.class);
                 break;
             default:
                 event = null;
@@ -45,20 +43,20 @@ public class B2dFixtureEventFactory {
     }
 
     public static AddFixtureEvent add(FixtureDef fixtureDef) {
-        AddFixtureEvent event = getEvent(B2dFixtureEventsEnum.Add);
+        AddFixtureEvent event = getEvent(B2dEventsEnum.FixtureAdd);
         event.setFixtureDef(fixtureDef);
         return event;
     }
 
-    public static DestroyFixtureEvent destroy(int fixtureNumber) {
-        DestroyFixtureEvent event = getEvent(B2dFixtureEventsEnum.Destroy);
-        event.setFixtureNumber(fixtureNumber);
+    public static DestroyFixtureEvent destroy(B2dFixture b2dFixture) {
+        DestroyFixtureEvent event = getEvent(B2dEventsEnum.FixtureDestroy);
+        event.setB2dFixture(b2dFixture);
         return event;
     }
 
-    public static ChangeFixtureDefEvent change(int fixtureNumber, FixtureDef fixtureDef) {
-        ChangeFixtureDefEvent event = getEvent(B2dFixtureEventsEnum.Change);
-        event.setFixtureNumber(fixtureNumber);
+    public static ChangeFixtureDefEvent fixtureDefinition(B2dFixture b2dFixture, FixtureDef fixtureDef) {
+        ChangeFixtureDefEvent event = getEvent(B2dEventsEnum.FixtureDefChange);
+        event.setB2dFixture(b2dFixture);
         event.setFixtureDef(fixtureDef);
         return event;
     }
@@ -66,24 +64,18 @@ public class B2dFixtureEventFactory {
     /**
      * Sensor=true = no collision response
      */
-    public static SensorFixtureEvent sensor(int fixtureNumber, boolean sensor) {
-        SensorFixtureEvent event = getEvent(B2dFixtureEventsEnum.Sensor);
-        event.setFixtureNumber(fixtureNumber);
+    public static SensorFixtureEvent sensor(B2dFixture b2dFixture, boolean sensor) {
+        SensorFixtureEvent event = getEvent(B2dEventsEnum.FixtureSensor);
+        event.setB2dFixture(b2dFixture);
         event.setSensor(sensor);
         return event;
     }
 
-    public static FilterDataFixtureEvent fixtureFilter(int fixtureNumber, Filter filter) {
-        FilterDataFixtureEvent event = getEvent(B2dFixtureEventsEnum.Filter);
-        event.setFixtureNumber(fixtureNumber);
+    public static FilterDataFixtureEvent fixtureFilter(B2dFixture b2dFixture, Filter filter) {
+        FilterDataFixtureEvent event = getEvent(B2dEventsEnum.FixtureFilter);
+        event.setB2dFixture(b2dFixture);
         event.setFilter(filter);
         return event;
     }
 
-    public static UserDataFixtureEvent userData(int fixtureNumber, Object userData) {
-        UserDataFixtureEvent event = getEvent(B2dFixtureEventsEnum.Filter);
-        event.setFixtureNumber(fixtureNumber);
-        event.setUserdata(userData);
-        return event;
-    }
 }

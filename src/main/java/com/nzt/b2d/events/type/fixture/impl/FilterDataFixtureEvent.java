@@ -2,19 +2,20 @@ package com.nzt.b2d.events.type.fixture.impl;
 
 import com.badlogic.gdx.physics.box2d.Filter;
 import com.badlogic.gdx.physics.box2d.Fixture;
-import com.nzt.b2d.events.B2dFixtureEventsEnum;
-import com.nzt.b2d.events.type.fixture.BaseApplyToFixtureEvent;
+import com.nzt.b2d.events.B2dEventsEnum;
+import com.nzt.b2d.events.type.fixture.B2dFixtureEvent;
+import com.nzt.b2d.wrapper.B2dFixture;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-public class FilterDataFixtureEvent extends BaseApplyToFixtureEvent<FilterDataFixtureEvent> {
+public class FilterDataFixtureEvent extends B2dFixtureEvent<FilterDataFixtureEvent> {
 
     private Filter filter;
 
     public FilterDataFixtureEvent() {
-        super(B2dFixtureEventsEnum.Filter);
+        super(B2dEventsEnum.FixtureFilter);
     }
 
     @Override
@@ -33,7 +34,8 @@ public class FilterDataFixtureEvent extends BaseApplyToFixtureEvent<FilterDataFi
     }
 
     @Override
-    public void applyOnFixture(Fixture fixture) {
-        fixture.setFilterData(filter);
+    public void applyOnFixture(B2dFixture b2dFixture) {
+        b2dFixture.getFixture().setFilterData(filter);
     }
+
 }

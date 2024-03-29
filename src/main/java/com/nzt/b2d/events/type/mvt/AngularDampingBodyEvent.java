@@ -1,14 +1,15 @@
 package com.nzt.b2d.events.type.mvt;
 
 import com.badlogic.gdx.physics.box2d.Body;
-import com.nzt.b2d.events.B2dBaseEvent;
+import com.nzt.b2d.events.B2dEvent;
 import com.nzt.b2d.events.B2dEventsEnum;
+import com.nzt.b2d.wrapper.B2dBody;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-public class AngularDampingBodyEvent extends B2dBaseEvent<AngularDampingBodyEvent> {
+public class AngularDampingBodyEvent extends B2dEvent<AngularDampingBodyEvent> {
 
     private float angularDamping;
     private boolean setValue;
@@ -37,8 +38,8 @@ public class AngularDampingBodyEvent extends B2dBaseEvent<AngularDampingBodyEven
     }
 
     @Override
-    public void apply(Body body) {
-        body.setAngularDamping(angularDamping);
+    public void apply(B2dBody b2dBody) {
+        b2dBody.getBody().setAngularDamping(angularDamping);
     }
 
 }

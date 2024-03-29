@@ -1,14 +1,15 @@
 package com.nzt.b2d.events.type.mvt;
 
 import com.badlogic.gdx.physics.box2d.Body;
-import com.nzt.b2d.events.B2dBaseEvent;
+import com.nzt.b2d.events.B2dEvent;
 import com.nzt.b2d.events.B2dEventsEnum;
+import com.nzt.b2d.wrapper.B2dBody;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
-public class TorqueBodyEvent extends B2dBaseEvent<TorqueBodyEvent> {
+public class TorqueBodyEvent extends B2dEvent<TorqueBodyEvent> {
 
     private float torque;
     private boolean wake;
@@ -37,8 +38,8 @@ public class TorqueBodyEvent extends B2dBaseEvent<TorqueBodyEvent> {
     }
 
     @Override
-    public void apply(Body body) {
-        body.applyTorque(torque, wake);
+    public void apply(B2dBody b2dBody) {
+        b2dBody.getBody().applyTorque(torque, wake);
     }
 
     @Override
