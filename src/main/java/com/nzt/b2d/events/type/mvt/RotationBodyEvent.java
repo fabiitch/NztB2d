@@ -10,9 +10,7 @@ import lombok.Setter;
 @Setter
 public class RotationBodyEvent extends B2dBaseEvent<RotationBodyEvent> {
 
-    public float angleRadian;
-    public short priority;
-
+    private float angleRadian;
     public RotationBodyEvent() {
         super(B2dEventsEnum.Rotation);
     }
@@ -25,16 +23,16 @@ public class RotationBodyEvent extends B2dBaseEvent<RotationBodyEvent> {
 
     @Override
     public boolean canConcat(RotationBodyEvent event) {
-        if (this.priority < event.priority) {
-            this.angleRadian = event.angleRadian;
-            this.priority = event.priority;
-        }
-        return true;
+        return false;
+    }
+
+    @Override
+    protected void concat(RotationBodyEvent event) {
+
     }
 
     @Override
     public void reset() {
         this.angleRadian = 0;
-        this.priority = 0;
     }
 }

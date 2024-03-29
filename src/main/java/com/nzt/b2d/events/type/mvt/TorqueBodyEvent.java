@@ -10,8 +10,10 @@ import lombok.Setter;
 @Setter
 public class TorqueBodyEvent extends B2dBaseEvent<TorqueBodyEvent> {
 
-    public float torque;
-    public boolean wake;
+    private float torque;
+    private boolean wake;
+
+    private boolean setValue;
 
     public TorqueBodyEvent() {
         super(B2dEventsEnum.Torque);
@@ -20,19 +22,18 @@ public class TorqueBodyEvent extends B2dBaseEvent<TorqueBodyEvent> {
     @Override
     public boolean canConcat(TorqueBodyEvent event) {
         this.torque = event.torque;
-        this.wake = event.wake;
+
         return true;
     }
 
     @Override
     protected void concat(TorqueBodyEvent event) {
-
-    }
-
-    @Override
-    public void reset() {
-        this.torque = 0f;
-        this.wake = false;
+        if (event.setValue) {
+            this.torque = event.getTorque();
+        } else {
+            this.torque += event.getTorque();
+        }
+        this.wake = event.wake;
     }
 
     @Override
@@ -40,4 +41,9 @@ public class TorqueBodyEvent extends B2dBaseEvent<TorqueBodyEvent> {
         body.applyTorque(torque, wake);
     }
 
+    @Override
+    public void reset() {
+        this.torque = 0f;
+        this.wake = false;
+    }
 }

@@ -14,7 +14,7 @@ public class ApplyForceBodyEvent extends B2dBaseEvent<ApplyForceBodyEvent> {
     public Vector2 force;
     public Vector2 point;
     public boolean wake;
-
+    private boolean setValue;
     public ApplyForceBodyEvent() {
         super(B2dEventsEnum.ApplyForce);
     }
@@ -22,6 +22,11 @@ public class ApplyForceBodyEvent extends B2dBaseEvent<ApplyForceBodyEvent> {
     @Override
     public boolean canConcat(ApplyForceBodyEvent event) {
         return false;
+    }
+
+    @Override
+    protected void concat(ApplyForceBodyEvent event) {
+
     }
 
     @Override

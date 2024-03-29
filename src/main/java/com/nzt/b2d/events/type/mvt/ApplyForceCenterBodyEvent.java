@@ -11,8 +11,9 @@ import lombok.Setter;
 @Setter
 public class ApplyForceCenterBodyEvent extends B2dBaseEvent<ApplyForceCenterBodyEvent> {
 
-    public Vector2 force;
-    public boolean wake;
+    private final Vector2 force = new Vector2();
+    private boolean wake;
+    private boolean setValue;
 
     public ApplyForceCenterBodyEvent() {
         super(B2dEventsEnum.ApplyForceToCenter);
@@ -20,7 +21,22 @@ public class ApplyForceCenterBodyEvent extends B2dBaseEvent<ApplyForceCenterBody
 
     @Override
     public boolean canConcat(ApplyForceCenterBodyEvent event) {
-        return false;
+        return true;
+    }
+
+    @Override
+    protected void concat(ApplyForceCenterBodyEvent event) {
+        if (setValue) {
+            this.force.set(event.force);
+        } else {
+            this.force.add(event.force);
+        }
+        this.wake = event.wake;
+    }
+
+    @Override
+    public void apply(Body body) {
+        body.applyForceToCenter(force, wake);
     }
 
     @Override
@@ -29,10 +45,5 @@ public class ApplyForceCenterBodyEvent extends B2dBaseEvent<ApplyForceCenterBody
         this.wake = false;
     }
 
-    @Override
-    public void apply(Body body) {
-        body.applyForceToCenter(force, wake);
-
-    }
 
 }

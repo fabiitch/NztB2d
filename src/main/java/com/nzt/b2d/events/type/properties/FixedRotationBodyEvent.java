@@ -10,7 +10,7 @@ import lombok.Setter;
 @Setter
 public class FixedRotationBodyEvent extends B2dBaseEvent<FixedRotationBodyEvent> {
 
-    public boolean fixedRotation;
+    private boolean fixedRotation;
 
     public FixedRotationBodyEvent() {
         super(B2dEventsEnum.AngularDamping);

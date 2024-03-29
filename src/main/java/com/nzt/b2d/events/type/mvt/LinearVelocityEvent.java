@@ -10,8 +10,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class LinearVelocityEvent extends B2dBaseEvent<LinearVelocityEvent> {
-
-    public Vector2 velocity = new Vector2();
+    private final Vector2 velocity = new Vector2();
 
     public LinearVelocityEvent() {
         super(B2dEventsEnum.LinearVelocity);
@@ -19,8 +18,12 @@ public class LinearVelocityEvent extends B2dBaseEvent<LinearVelocityEvent> {
 
     @Override
     public boolean canConcat(LinearVelocityEvent event) {
-        this.velocity.add(event.velocity);
         return true;
+    }
+
+    @Override
+    protected void concat(LinearVelocityEvent event) {
+        this.velocity.set(event.velocity);
     }
 
     @Override

@@ -11,9 +11,8 @@ import lombok.Setter;
 @Setter
 public class TransformBodyEvent extends B2dBaseEvent<TransformBodyEvent> {
 
-    public Vector2 positionTo = new Vector2();
+    public final Vector2 positionTo = new Vector2();
     public float rotation;
-    public short priority;
 
     public TransformBodyEvent() {
         super(B2dEventsEnum.Transform);
@@ -27,19 +26,19 @@ public class TransformBodyEvent extends B2dBaseEvent<TransformBodyEvent> {
 
     @Override
     public boolean canConcat(TransformBodyEvent event) {
-        if (this.priority < event.priority) {
-            this.positionTo.set(event.positionTo);
-            this.rotation = event.rotation;
-            this.priority = event.priority;
-        }
         return true;
+    }
+
+    @Override
+    protected void concat(TransformBodyEvent event) {
+        this.positionTo.set(event.positionTo);
+        this.rotation = event.rotation;
     }
 
     @Override
     public void reset() {
         this.positionTo.setZero();
         this.rotation = 0;
-        this.priority = 0;
     }
 
 }

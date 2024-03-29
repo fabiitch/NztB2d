@@ -10,9 +10,9 @@ import lombok.Setter;
 @Setter
 public class AngularImpulseBodyEvent extends B2dBaseEvent<AngularImpulseBodyEvent> {
 
-    public float impulse;
-    public boolean wake;
-    public boolean set;
+    private float impulse;
+    private boolean wake;
+    private boolean setValue;
 
     public AngularImpulseBodyEvent() {
         super(B2dEventsEnum.AngularImpulse);
@@ -20,9 +20,18 @@ public class AngularImpulseBodyEvent extends B2dBaseEvent<AngularImpulseBodyEven
 
     @Override
     public boolean canConcat(AngularImpulseBodyEvent event) {
-        this.impulse = event.impulse;
-        this.wake = event.wake;
         return true;
+    }
+
+    @Override
+    protected void concat(AngularImpulseBodyEvent event) {
+        if (setValue) {
+            this.impulse = event.impulse;
+            this.wake = event.wake;
+        } else {
+            this.impulse += event.impulse;
+            this.wake = event.wake;
+        }
     }
 
     @Override

@@ -10,7 +10,7 @@ import lombok.Setter;
 @Setter
 public class BulletBodyEvent extends B2dBaseEvent<BulletBodyEvent> {
 
-    public boolean bullet;
+    private boolean bullet;
 
     public BulletBodyEvent() {
         super(B2dEventsEnum.Bullet);

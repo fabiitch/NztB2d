@@ -78,13 +78,13 @@ public class B2dBodyEventFactory {
 
     public static BulletBodyEvent bullet(boolean bullet) {
         BulletBodyEvent event = getEvent(B2dEventsEnum.Bullet);
-        event.bullet = bullet;
+        event.setBullet(bullet);
         return event;
     }
 
     public static FixedRotationBodyEvent fixedRotation(boolean fixedRotation) {
         FixedRotationBodyEvent event = getEvent(B2dEventsEnum.Bullet);
-        event.fixedRotation = fixedRotation;
+        event.setFixedRotation(fixedRotation);
         return event;
     }
 
@@ -110,38 +110,38 @@ public class B2dBodyEventFactory {
 
     public static RotationBodyEvent rotation(float angleRadian) {
         RotationBodyEvent event = getEvent(B2dEventsEnum.Rotation);
-        event.angleRadian = angleRadian;
+        event.setAngleRadian(angleRadian);
         return event;
     }
 
     public static LinearVelocityEvent linearVelocity(Vector2 velocity) {
         LinearVelocityEvent event = getEvent(B2dEventsEnum.LinearVelocity);
-        event.velocity.set(velocity);
+        event.getVelocity().set(velocity);
         return event;
     }
 
     public static LinearVelocityEvent linearVelocity(float velX, float velY) {
         LinearVelocityEvent event = getEvent(B2dEventsEnum.LinearVelocity);
-        event.velocity.set(velX, velY);
+        event.getVelocity().set(velX, velY);
         return event;
     }
 
-    public static AngularVelocityEvent angularVelocity(float velocity) {
+    public static AngularVelocityEvent angularVelocity(float angularVelocity) {
         AngularVelocityEvent event = getEvent(B2dEventsEnum.AngularVelocity);
-        event.angularVelocity = velocity;
+        event.setAngularVelocity(angularVelocity);
         return event;
     }
 
     public static AngularImpulseBodyEvent angularImpulse(float impulse, boolean wake) {
         AngularImpulseBodyEvent event = getEvent(B2dEventsEnum.AngularImpulse);
-        event.impulse = impulse;
-        event.wake = wake;
+        event.setImpulse(impulse);
+        event.setWake(wake);
         return event;
     }
 
     public static AngularDampingBodyEvent angularDamping(float angularDamping) {
         AngularDampingBodyEvent event = getEvent(B2dEventsEnum.AngularImpulse);
-        event.angularDamping = angularDamping;
+        event.setAngularDamping(angularDamping);
         return event;
     }
 
@@ -161,31 +161,20 @@ public class B2dBodyEventFactory {
         return event;
     }
 
-    public static ApplyForceCenterBodyEvent applyForceToCenter(Vector2 force, Vector2 point, boolean wake) {
+    public static ApplyForceCenterBodyEvent applyForceToCenter(Vector2 force, boolean wake) {
         ApplyForceCenterBodyEvent event = getEvent(B2dEventsEnum.ApplyForceToCenter);
-        event.force.set(force);
-        event.wake = wake;
+        event.getForce().set(force);
+        event.setWake(wake);
         return event;
     }
 
-    public static ApplyForceCenterBodyEvent applyForceToCenter(Vector2 force) {
-        ApplyForceCenterBodyEvent event = getEvent(B2dEventsEnum.ApplyForceToCenter);
-        event.force.set(force);
-        event.wake = true;
-        return event;
-    }
 
-    public static TorqueBodyEvent torque(float torque, boolean wake) {
+    public static TorqueBodyEvent torque(float torque, boolean wake, boolean setValue) {
         TorqueBodyEvent event = getEvent(B2dEventsEnum.Torque);
-        event.torque = torque;
-        event.wake = wake;
+        event.setTorque(torque);
+        event.setWake(wake);
+        event.setSetValue(setValue);
         return event;
     }
 
-    public static TorqueBodyEvent torque(float torque) {
-        TorqueBodyEvent event = getEvent(B2dEventsEnum.Torque);
-        event.torque = torque;
-        event.wake = true;
-        return event;
-    }
 }

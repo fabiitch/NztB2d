@@ -10,8 +10,8 @@ import lombok.Setter;
 @Setter
 public class AngularVelocityEvent extends B2dBaseEvent<AngularVelocityEvent> {
 
-    public float angularVelocity;
-
+    private float angularVelocity;
+    private boolean setValue;
     public AngularVelocityEvent() {
         super(B2dEventsEnum.AngularVelocity);
     }
@@ -20,6 +20,15 @@ public class AngularVelocityEvent extends B2dBaseEvent<AngularVelocityEvent> {
     public boolean canConcat(AngularVelocityEvent event) {
         this.angularVelocity += event.angularVelocity;
         return true;
+    }
+
+    @Override
+    protected void concat(AngularVelocityEvent event) {
+        if (setValue) {
+            this.angularVelocity = event.angularVelocity;
+        } else {
+            this.angularVelocity += event.angularVelocity;
+        }
     }
 
     @Override

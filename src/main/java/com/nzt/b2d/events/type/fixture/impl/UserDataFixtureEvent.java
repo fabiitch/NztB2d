@@ -17,7 +17,7 @@ public class UserDataFixtureEvent extends BaseApplyToFixtureEvent<UserDataFixtur
 
     @Override
     protected void concat(UserDataFixtureEvent event) {
-
+        userdata = event.getUserdata();
     }
 
     @Override

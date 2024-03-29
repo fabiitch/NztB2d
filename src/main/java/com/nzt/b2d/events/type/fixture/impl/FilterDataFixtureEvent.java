@@ -19,12 +19,12 @@ public class FilterDataFixtureEvent extends BaseApplyToFixtureEvent<FilterDataFi
 
     @Override
     protected boolean canConcat(FilterDataFixtureEvent event) {
-        return false;
+        return true;
     }
 
     @Override
     protected void concat(FilterDataFixtureEvent event) {
-
+        filter = event.filter;
     }
 
     @Override

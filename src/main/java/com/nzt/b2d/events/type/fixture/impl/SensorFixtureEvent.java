@@ -21,6 +21,11 @@ public class SensorFixtureEvent extends BaseApplyToFixtureEvent<SensorFixtureEve
         return true;
     }
 
+    @Override
+    protected void concat(SensorFixtureEvent event) {
+        sensor = event.isSensor();
+    }
+
 
     @Override
     protected void resetFixtureEvent() {

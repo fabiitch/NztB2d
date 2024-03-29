@@ -27,12 +27,6 @@ public class ChangeFixtureDefEvent extends BaseApplyToFixtureEvent<ChangeFixture
         this.fixtureDef = event.getFixtureDef();
     }
 
-
-    @Override
-    protected void resetFixtureEvent() {
-
-    }
-
     @Override
     public void applyOnFixture(Fixture fixture) {
         fixture.setDensity(fixtureDef.density);
@@ -41,5 +35,7 @@ public class ChangeFixtureDefEvent extends BaseApplyToFixtureEvent<ChangeFixture
         fixture.setRestitution(fixtureDef.restitution);
         fixture.setSensor(fixtureDef.isSensor);
     }
-
+    @Override
+    protected void resetFixtureEvent() {
+    }
 }

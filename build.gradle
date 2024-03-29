@@ -28,6 +28,7 @@ ext {
     junitVersion = "5.7.0"
     lombokVersion= "1.18.28"
 }
+
 dependencies {
     api "com.badlogicgames.gdx:gdx-box2d:$gdxVersion"
 

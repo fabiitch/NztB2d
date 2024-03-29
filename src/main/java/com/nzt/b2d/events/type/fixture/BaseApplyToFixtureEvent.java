@@ -26,6 +26,10 @@ public abstract class BaseApplyToFixtureEvent<E extends BaseApplyToFixtureEvent>
 
     @Override
     protected boolean canConcat(E event) {
+        return isOnSameFixture(event);
+    }
+
+    public boolean isOnSameFixture(E event){
         return this.fixtureNumber == event.getFixtureNumber();
     }
 

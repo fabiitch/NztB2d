@@ -28,12 +28,13 @@ public class AddFixtureEvent extends BaseFixtureBodyEvent<AddFixtureEvent> {
     }
 
     @Override
+    public void apply(Body body) {
+        body.createFixture(fixtureDef);
+    }
+
+    @Override
     public void reset() {
         fixtureDef = null;
     }
 
-    @Override
-    public void apply(Body body) {
-        body.createFixture(fixtureDef);
-    }
 }
